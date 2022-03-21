@@ -111,4 +111,8 @@
     .nav-bottom .menu-item i{
         font-size: 24px !important;
     }
+
+    .search-box{
+        width: 200px !important;
+    }
 }

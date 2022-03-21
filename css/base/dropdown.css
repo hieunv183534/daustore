@@ -1,0 +1,125 @@
+.dropdown {
+    width: 200px;
+    height: 36px;
+    position: relative;
+}
+
+.dropdown p {
+    margin: 0;
+    line-height: 36px;
+    font-size: 13px;
+    margin-left: 10px;
+}
+
+.dropdown .dropdown-main {
+    height: 36px;
+    width: 100%;
+    background-color: #ffffff;
+    border: 1px solid #bbbbbb;
+    border-radius: 4px;
+    outline: none;
+    box-sizing: border-box;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.dropdown .dropdown-main .icon {
+    width: 20px;
+    height: 20px;
+    background-color: #ffffff;
+    margin-right: 4px;
+    margin-top: 4px;
+}
+
+.dropdown .dropdown-main .icon i {
+    transition: 0.2s;
+}
+
+.dropdown .dropdown-main:focus .icon i {
+    transform: rotate(180deg);
+    transition: 0.2s;
+}
+
+.dropdown .dropdown-main:focus {
+    border-color: #ec5504;
+}
+
+
+
+.dropdown .dropdown-data {
+    position: absolute;
+    border-radius: 4px;
+    top: 36px;
+    left: 0;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    z-index: 99;
+    transition: 0.2s;
+    overflow-y: scroll;
+    display: none;
+}
+
+.last-dropdown .dropdown-data {
+    top: 0px;
+}
+
+.last-dropdown .dropdown-data {
+    height: 155px;
+    transition: 1s;
+    background-color: white;
+    z-index: 99;
+    box-shadow: 1px -2px 4px 1px #454545;
+    display: none;
+    top: -155px;
+}
+
+.dropdown-data-show {
+    display: block !important;
+}
+
+.dropdown .dropdown-data .dropdown-item {
+    width: 100%;
+    height: 36px;
+    background-color: #ffffff;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+.dropdown .dropdown-data .dropdown-item:hover {
+    background-color: #FFEDE2;
+}
+
+.dropdown .dropdown-data .dropdown-item i {
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 16px;
+    opacity: 0;
+}
+
+.dropdown .dropdown-data .dropdown-item.item-selected {
+    background-color: #FFF4EE;
+}
+
+.dropdown .dropdown-data .dropdown-item.item-selected i {
+    opacity: 1;
+    color: #ec5504;
+}
+
+.dropdown .dropdown-data .dropdown-item.item-selected p {
+    color: #EE6820;
+}
+
+
+
+.dropdown .dropdown-data .dropdown-item:first-child {
+    margin-top: 5px;
+}
+
+.dropdown .dropdown-data .dropdown-item:last-child {
+    margin-bottom: 5px;
+}
+

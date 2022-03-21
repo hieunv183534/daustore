@@ -1,0 +1,91 @@
+.radio-button {
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    background-color: #fff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #AFAFAF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: relative;
+}
+
+.radio-button2{
+    padding: 0;
+    margin: 0;
+    outline: 0;
+    border: 0;
+    background-color: #fff;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    border: 1px solid #AFAFAF;
+    display: flexbox;
+}
+
+.radio-button-check {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #2ca01c;
+    display: none;
+    pointer-events: none;
+}
+
+.radio-button-active {
+    border-color: #2ca01c;
+}
+
+.radio-button-focus {
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    box-sizing: border-box;
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    pointer-events: none;
+}
+
+.radio-button:focus .radio-button-focus {
+    border: 1px solid #A4DFFF;
+}
+
+.radio-button[value='1']>.radio-button-check {
+    display: block;
+}
+
+.radio-button-group {
+    height: 32px;
+    width: 225px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-direction: row;
+    margin-left: 5px !important;
+}
+
+.radio-button-group2 {
+    height: 32px;
+    width: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: row;
+    margin-left: 5px !important;
+}
+
+
+.radio-button-group p {
+    font-size: 13px;
+    line-height: 32px;
+    margin-right: 20px;
+    margin-left: 10px;
+    margin-top: 0;
+    margin-bottom: 0;
+}

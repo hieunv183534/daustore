@@ -1,0 +1,15 @@
+.combobox {
+    width: 240px;
+    height: 36px;
+    position: relative;
+}
+
+.combobox>i {
+    position: absolute;
+    right: 8px;
+    top: 11px;
+}
+
+.combobox>input {
+    width: 100% !important;
+}

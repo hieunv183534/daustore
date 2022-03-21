@@ -1,0 +1,33 @@
+.qr{
+    z-index: 800;
+}
+
+.qr-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #000;
+    opacity: 0.4;
+    z-index: 801;
+}
+
+.qr-content{
+    border-radius: 3px;
+    width: 500px;
+    height: 550px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    background-color: aquamarine;
+    z-index: 802;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    justify-content: center;
+}
+
+.qr-content img{
+}

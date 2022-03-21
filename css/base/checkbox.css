@@ -1,0 +1,30 @@
+.checkbox{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #888;
+    float: left;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.grid .checkbox{
+    margin-left: 20px;
+}
+
+.checkbox i{
+    color: #eee;
+    display: none;
+}
+
+.checkbox[value="1"]{
+    background-color: #ec5504;
+    border-color: #ec5504;
+}
+
+.checkbox[value="1"] i{
+    display: block;
+}

@@ -1,0 +1,46 @@
+.loader {
+    z-index: 450;
+}
+
+.loader-modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: #fff;
+    opacity: 0.4;
+    z-index: 444;
+}
+
+.loader[isShow='show'] {
+    visibility: visible;
+}
+
+.loader[isShow='hide'] {
+    visibility: hidden;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.loader-icon {
+    width: 118px;
+    height: 118px;
+    position: fixed;
+    margin-left: -59px;
+    margin-top: -59px;
+    top: 50%;
+    left: 50%;
+    background-image: url('../../assets/img/loader.svg');
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 445;
+    animation: rotate 0.1s linear infinite;
+}

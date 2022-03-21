@@ -53,6 +53,20 @@
     </div>
     <div class="content"></div>
     <div class="footer"></div>
+
+    <script>
+        window.onload = () => {
+            $.ajax({
+                url: "http://daustore-001-site1.gtempurl.com/api/Test/getTest",
+                method: 'GET'
+            }).done(res=>{
+                alert("Success");
+                console.log(res);
+            }).fail(err=>{
+                alert("Fail");
+            })
+        }
+    </script>
 </body>
 
 </html>

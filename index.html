@@ -110,22 +110,27 @@
             <p>Đăng kí</p>
         </div>
     </div>
-    <label class="nav-overlay"  for="open-menu-status"></label>
+    <label class="nav-overlay" for="open-menu-status"></label>
     <div class="content"></div>
     <div class="footer"></div>
 
     <script>
-        // window.onload = () => {
-        //     $.ajax({
-        //         url: "http://daustore-001-site1.gtempurl.com/api/Test/getTest",
-        //         method: 'GET'
-        //     }).done(res => {
-        //         alert("Success");
-        //         console.log(res);
-        //     }).fail(err => {
-        //         alert("Fail");
-        //     })
-        // }
+        let data = { phoneNumber: "0971883025", password: "string" };
+
+        window.onload = () => {
+            $.ajax({
+                url: "https://bkzalohieunv.herokuapp.com/api/login",
+                method: 'POST',
+                dataType: 'json',
+                contentType: 'application/json',
+                data: JSON.stringify(data)
+            }).done(res => {
+                alert("Success");
+                console.log(res);
+            }).fail(err => {
+                alert("Fail");
+            })
+        }
     </script>
 </body>
 

@@ -25,9 +25,9 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
-    min-height: 30px;
+    min-height: 40px;
     height: auto;
-    max-height: 60px;
+    max-height: 80px;
 }
 
 .filter-item{

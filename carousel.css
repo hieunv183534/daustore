@@ -67,6 +67,8 @@ ul {
     font-size: 25px;
     color: #211616;
     z-index: 20;
+    cursor: pointer;
+    opacity: 0.4;
 }
 
 .slick-next {

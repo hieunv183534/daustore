@@ -1,146 +1,92 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        /*
- Only custom marker for summary/details
- For cross browser compatible styling hide Firefox's marker by setting summary { display: block }
- and Chrome and Safari's marker by setting ::-webkit-details-marker {display: none;}
-*/
-        summary {
-            display: block;
-            cursor: pointer;
-            outline: 0;
-        }
-
-        summary::-webkit-details-marker {
-            display: none;
-        }
-
-
-        .tree-nav__item {
-            display: block;
-            white-space: nowrap;
-            color: #111;
-            position: relative;
-        }
-
-        .tree-nav__item.is-expandable::before {
-            border-left: 1px solid #333;
-            content: "";
-            height: 100%;
-            left: 0.8rem;
-            position: absolute;
-            top: 2.4rem;
-            height: calc(100% - 2.4rem);
-        }
-
-        .tree-nav__item .tree-nav__item {
-            margin-left: 2.4rem;
-        }
-
-        .tree-nav__item.is-expandable[open]>.tree-nav__item-title::before {
-            font-family: "ionicons";
-            transform: rotate(90deg);
-        }
-
-        .tree-nav__item.is-expandable>.tree-nav__item-title {
-            padding-left: 2.4rem;
-        }
-
-        .tree-nav__item.is-expandable>.tree-nav__item-title::before {
-            position: absolute;
-            will-change: transform;
-            transition: transform 300ms ease;
-            font-family: "ionicons";
-            color: #111;
-            font-size: 1.1rem;
-            content: "\f125";
-            left: 0;
-            display: inline-block;
-            width: 1.6rem;
-            text-align: center;
-        }
-
-        .tree-nav__item-title {
-            cursor: pointer;
-            display: block;
-            outline: 0;
-            color: #111;
-            font-size: 1.5rem;
-            line-height: 3.2rem;
-        }
-
-        .tree-nav__item-title .icon {
-            display: inline;
-            padding-left: 1.6rem;
-            margin-right: 0.8rem;
-            color: #666;
-            font-size: 1.4rem;
-            position: relative;
-        }
-
-        .tree-nav__item-title .icon::before {
-            top: 0;
-            position: absolute;
-            left: 0;
-            display: inline-block;
-            width: 1.6rem;
-            text-align: center;
-        }
-
-        .tree-nav__item-title::-webkit-details-marker {
-            display: none;
-        }
-    </style>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <link rel="stylesheet" href="carousel.css">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 </head>
-
 <body>
-    <html>
+  <div class="carousel-container">
+    <a class="slick-arrow slick-prev">
+      <i class="fas fa-angle-left"></i>
+    </a>
+    <div class="slick-list">
+      <div class="slick-track">
+        <div id="lastClone" class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true" style="width: 584px;">
+          <div>
+            <a href="" aria-label="" tabindex="-1" style="width: 100%; display: inline-block">
+              <img class="image" src="https://www.ruaanhgiare.vn/wp-content/uploads/2018/01/decal-viet-nam-vo-dich.png" alt="">
+            </a>
+          </div>
+        </div>
 
-    <head>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.css" rel="stylesheet"
-            type="text/css" />
-    </head>
+        <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true" style="width: 584px;">
+          <div>
+            <a href="" aria-label="" tabindex="-1" style="width: 100%; display: inline-block">
+              <img class="image" src="https://znews-photo.zadn.vn/Uploaded/lerl/2018_12_17/z1209365217567_bab0fbf58cd5b14338477c72bbbe56e1.jpg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true" style="width: 584px;">
+          <div>
+            <a href="" aria-label="" tabindex="-1" style="width: 100%; display: inline-block">
+              <img class="image" src="https://znews-photo.zadn.vn/w660/Uploaded/neg_wpeczyr/2019_11_19/Tuan_Anh_vs_Thai_Lan_5_zing1_11.jpg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true" style="width: 584px;">
+          <div>
+            <a href="" aria-label="" tabindex="-1" style="width: 100%; display: inline-block">
+              <img class="image" src="https://vnn-imgs-f.vgcloud.vn/2019/12/10/21/u22-vietnam-2.jpg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true" style="width: 584px;">
+          <div>
+            <a href="" aria-label="" tabindex="-1" style="width: 100%; display: inline-block">
+              <img class="image" src="https://image.thanhnien.vn/660/uploaded/quangtuyen/2019_10_10/yen1_vzrw.jpg" alt="">
+            </a>
+          </div>
+        </div>
+        <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true" style="width: 584px;">
+          <div>
+            <a href="" aria-label="" tabindex="-1" style="width: 100%; display: inline-block">
+              <img class="image" src="https://www.ruaanhgiare.vn/wp-content/uploads/2018/01/decal-viet-nam-vo-dich.png" alt="">
+            </a>
+          </div>
+        </div>
 
-    <body>
-
-
-        <nav class="tree-nav">
-            <details class="tree-nav__item is-expandable">
-                <summary class="tree-nav__item-title">Quần áo</summary>
-                <div class="tree-nav__item">
-                    <a class="tree-nav__item-title">Quần áo chung</a>
-                    <a class="tree-nav__item-title">Mũ</a>
-                    <a class="tree-nav__item-title">Giày</a>
-                </div>
-                <details class="tree-nav__item is-expandable">
-                    <summary class="tree-nav__item-title">Quần</summary>
-                    <div class="tree-nav__item">
-                      <a class="tree-nav__item-title">Tất cả quần</a>
-                      <a class="tree-nav__item-title">Quần jean</a>
-                      <a class="tree-nav__item-title">Quẩn đùi</a>
-                    </div>
-                  </details>
-            </details>
-            <details class="tree-nav__item is-expandable">
-                <summary class="tree-nav__item-title">Phụ kiện</summary>
-                <div class="tree-nav__item">
-                  <a class="tree-nav__item-title">Bông tai</a>
-                  <a class="tree-nav__item-title">Lắc</a>
-                  <a class="tree-nav__item-title">Dây chuyền</a>
-                </div>
-              </details>
-        </nav>
-
-    </body>
-
-    </html>
+        <div id="firstClone" class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true" style="width: 584px;">
+          <div>
+            <a href="" aria-label="" tabindex="-1" style="width: 100%; display: inline-block">
+              <img class="image" src="https://znews-photo.zadn.vn/Uploaded/lerl/2018_12_17/z1209365217567_bab0fbf58cd5b14338477c72bbbe56e1.jpg" alt="">
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a class="slick-arrow slick-next">
+      <i class="fas fa-angle-right"></i>
+    </a>
+    <ul class="slick-dots">
+      <li class="slick-active">
+        <button>1</button>
+      </li>
+      <li class="">
+        <button>2</button>
+      </li>
+      <li class="">
+        <button>3</button>
+      </li>
+      <li class="">
+        <button>4</button>
+      </li>
+      <li class="">
+        <button>5</button>
+      </li>
+    </ul>
+  </div>
+  <script src="carousel.js"></script>
 </body>
-
 </html>

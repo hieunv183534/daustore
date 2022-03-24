@@ -7,17 +7,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dâu Store Home</title>
     <link rel="icon" type="image/png" href="./favicon.ico">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
         integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/layout/home.css">
+    <style>
+        .itemm {
+            background-color: #ff7ff7;
+        }
+    </style>
 </head>
 
 <body>
+    <!-- start nav-bar -->
     <input type="checkbox" name="" id="open-menu-status">
     <div class="nav-bar">
         <div class="nav-bar-left">
@@ -111,27 +114,126 @@
         </div>
     </div>
     <label class="nav-overlay" for="open-menu-status"></label>
-    <div class="content"></div>
+    <!-- end nav-bar -->
+    <div class="content">
+        <div class="grid wide">
+            <div class="row" style="margin: 10px 0;">
+                <div class="col l-12">
+                    <div class="row filter-bar">
+                        <div class="filter-item col l-2-4 m-2-4 c-4">
+                            <i class="fa fa-fire"></i>
+                            Mua nhiều nhất
+                        </div>
+                        <div class="filter-item col l-2-4 m-2-4 c-4 active">
+                            <i class="fa fa-gift"></i>
+                            Khuyến mãi
+                        </div>
+                        <div class="filter-item col l-2-4 m-2-4 c-4">
+                            <i class="fa-brands fa-angellist"></i>
+                            Sản phẩm mới
+                        </div>
+                        <div class="filter-item col l-2-4 m-2-4 c-6">
+                            <i class="fa fa-arrow-up-9-1"></i>
+                            Giá thấp tới cao
+                        </div>
+                        <div class="filter-item col l-2-4 m-2-4 c-6">
+                            <i class="fa fa-arrow-down-9-1"></i>
+                            Giá cao tới thấp
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l-2 m-0 c-0">
+                    <nav class="tree-nav">
+                        <details class="tree-nav__item is-expandable">
+                            <summary class="tree-nav__item-title">Quần áo</summary>
+                            <div class="tree-nav__item">
+                                <a class="tree-nav__item-title"><i class="fa-solid fa-user-tie"></i></i>Tất cả</a>
+                                <a class="tree-nav__item-title"><i class="fa-brands fa-redhat"></i>Mũ</a>
+                                <a class="tree-nav__item-title"><i class="fa-solid fa-shoe-prints"></i>Giày</a>
+                                <a class="tree-nav__item-title"><i class="fa-solid fa-shirt"></i>Áo</a>
+                            </div>
+                            <details class="tree-nav__item is-expandable">
+                                <summary class="tree-nav__item-title">Quần</summary>
+                                <div class="tree-nav__item">
+                                    <a class="tree-nav__item-title">Tất cả quần</a>
+                                    <a class="tree-nav__item-title">Quần jean</a>
+                                    <a class="tree-nav__item-title">Quẩn đùi</a>
+                                </div>
+                            </details>
+                        </details>
+                        <details class="tree-nav__item is-expandable">
+                            <summary class="tree-nav__item-title">Phụ kiện</summary>
+                            <div class="tree-nav__item">
+                                <a class="tree-nav__item-title">Bông tai</a>
+                                <a class="tree-nav__item-title">Lắc</a>
+                                <a class="tree-nav__item-title">Dây chuyền</a>
+                            </div>
+                        </details>
+                        <details class="tree-nav__item is-expandable">
+                            <summary class="tree-nav__item-title">Đồ ăn</summary>
+                            <div class="tree-nav__item">
+                                <a class="tree-nav__item-title">Nhung hươu</a>
+                                <a class="tree-nav__item-title">Đông trùng</a>
+                                <a class="tree-nav__item-title">Yến sào</a>
+                            </div>
+                        </details>
+                    </nav>
+                </div>
+                <div class="col l-10 m-12 c-12">
+                    <div class="row">
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 1</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 2</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 3</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 4</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 5</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 6</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 7</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 8</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 9</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 10</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 11</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 12</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 13</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 14</div>
+                        </div>
+                        <div class="col l-3 m-4 c-12">
+                            <div class="item-item">item 15</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="footer"></div>
-
-    <script>
-        let data = { phoneNumber: "0971883025", password: "string" };
-
-        window.onload = () => {
-            $.ajax({
-                url: "https://bkzalohieunv.herokuapp.com/api/login",
-                method: 'POST',
-                dataType: 'json',
-                contentType: 'application/json',
-                data: JSON.stringify(data)
-            }).done(res => {
-                alert("Success");
-                console.log(res);
-            }).fail(err => {
-                alert("Fail");
-            })
-        }
-    </script>
 </body>
 
 </html>

@@ -33,7 +33,6 @@ summary::-webkit-details-marker {
 .tree-nav__item.is-expandable[open]>.tree-nav__item-title::before {
     font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f146";
     color: #ff7ff7;
-    /* transform: rotate(-90deg); */
 }
 
 .tree-nav__item.is-expandable>.tree-nav__item-title {

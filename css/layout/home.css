@@ -21,6 +21,12 @@
     }
 }
 
+@media screen and (max-width:739px) {
+    .list-item{
+        /* margin: 0px 5px; */
+    }
+}
+
 .filter-bar{
     display: flex;
     align-items: center;

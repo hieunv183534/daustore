@@ -26,10 +26,10 @@
     <div class="nav-bar">
         <div class="nav-bar-left">
             <div class="logo"></div>
-            <div class="menu-item">
+            <a class="menu-item" href="#itemCategory">
                 <i class="fa fa-clipboard-list"></i>
                 <p>Danh mục sản phẩm</p>
-            </div>
+            </a>
             <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
             <button class="button button-secondary button-icon">
                 <i class="fa fa-magnifying-glass" style="color: #ff7ff7;"></i>
@@ -119,7 +119,7 @@
     <div class="content">
         <div class="grid wide">
             <div class="row">
-                <div class="col l-10 l-o-1 m-10 m-o-1 c-0">
+                <div class="col l-12 m-12 c-0">
                     <div class="carousel-container">
                         <a class="slick-arrow slick-prev">
                             <i class="fas fa-angle-left"></i>
@@ -127,7 +127,7 @@
                         <div class="slick-list">
                             <div class="slick-track">
                                 <div id="lastClone" class="slick-slide slick-cloned" data-index="1" tabindex="-1"
-                                    aria-hidden="true" style="width: 584px;">
+                                    aria-hidden="true">
                                     <div>
                                         <a href="" aria-label="" tabindex="-1"
                                             style="width: 100%; display: inline-block">
@@ -138,30 +138,27 @@
                                     </div>
                                 </div>
 
-                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true"
-                                    style="width: 584px;">
+                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true">
                                     <div>
                                         <a href="" aria-label="" tabindex="-1"
                                             style="width: 100%; display: inline-block">
                                             <img class="image"
-                                                src="https://znews-photo.zadn.vn/Uploaded/lerl/2018_12_17/z1209365217567_bab0fbf58cd5b14338477c72bbbe56e1.jpg"
+                                                src="https://assets.entrepreneur.com/content/3x2/2000/20200429211042-GettyImages-1164615296.jpeg"
                                                 alt="">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true"
-                                    style="width: 584px;">
+                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true">
                                     <div>
                                         <a href="" aria-label="" tabindex="-1"
                                             style="width: 100%; display: inline-block">
                                             <img class="image"
-                                                src="https://znews-photo.zadn.vn/w660/Uploaded/neg_wpeczyr/2019_11_19/Tuan_Anh_vs_Thai_Lan_5_zing1_11.jpg"
+                                                src="https://images.pexels.com/photos/801885/pexels-photo-801885.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
                                                 alt="">
                                         </a>
                                     </div>
                                 </div>
-                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true"
-                                    style="width: 584px;">
+                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true">
                                     <div>
                                         <a href="" aria-label="" tabindex="-1"
                                             style="width: 100%; display: inline-block">
@@ -171,8 +168,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true"
-                                    style="width: 584px;">
+                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true">
                                     <div>
                                         <a href="" aria-label="" tabindex="-1"
                                             style="width: 100%; display: inline-block">
@@ -182,8 +178,7 @@
                                         </a>
                                     </div>
                                 </div>
-                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true"
-                                    style="width: 584px;">
+                                <div class="slick-slide slick-cloned" data-index="1" tabindex="-1" aria-hidden="true">
                                     <div>
                                         <a href="" aria-label="" tabindex="-1"
                                             style="width: 100%; display: inline-block">
@@ -195,7 +190,7 @@
                                 </div>
 
                                 <div id="firstClone" class="slick-slide slick-cloned" data-index="1" tabindex="-1"
-                                    aria-hidden="true" style="width: 584px;">
+                                    aria-hidden="true">
                                     <div>
                                         <a href="" aria-label="" tabindex="-1"
                                             style="width: 100%; display: inline-block">
@@ -232,12 +227,12 @@
             </div>
         </div>
         <div class="grid wide">
-            <div class="row" style="margin: 10px 0;">
+            <div class="row" style="margin: 10px 0;" id="itemCategory">
                 <div class="col l-12 m-12 c-12">
                     <div class="row filter-bar">
                         <div class="filter-item col l-2-4 m-2-4 c-4">
                             <i class="fa fa-fire"></i>
-                            Mua nhiều nhất
+                            Mua nhiều
                         </div>
                         <div class="filter-item col l-2-4 m-2-4 c-4 active">
                             <i class="fa fa-gift"></i>
@@ -247,7 +242,7 @@
                             <i class="fa-brands fa-angellist"></i>
                             Sản phẩm mới
                         </div>
-                        <div class="filter-item col l-2-4 m-2-4 c-6">
+                        <div class="filter-item col l-2-4 m-2-4 c-6 active_">
                             <i class="fa fa-arrow-up-9-1"></i>
                             Giá thấp tới cao
                         </div>
@@ -264,10 +259,10 @@
                         <details class="tree-nav__item is-expandable">
                             <summary class="tree-nav__item-title">Quần áo</summary>
                             <div class="tree-nav__item">
-                                <a class="tree-nav__item-title"><i class="fa-solid fa-user-tie"></i></i>Tất cả</a>
-                                <a class="tree-nav__item-title"><i class="fa-brands fa-redhat"></i>Mũ</a>
-                                <a class="tree-nav__item-title"><i class="fa-solid fa-shoe-prints"></i>Giày</a>
-                                <a class="tree-nav__item-title"><i class="fa-solid fa-shirt"></i>Áo</a>
+                                <a class="tree-nav__item-title">Tất cả</a>
+                                <a class="tree-nav__item-title">Mũ</a>
+                                <a class="tree-nav__item-title">Giày</a>
+                                <a class="tree-nav__item-title">Áo</a>
                             </div>
                             <details class="tree-nav__item is-expandable">
                                 <summary class="tree-nav__item-title">Quần</summary>
@@ -308,10 +303,10 @@
                                     <p class="real-price">150000 <font>đ</font></p>
                                 </div>
                                 <div class="item-footer">
-                                    <div class="like-item">
+                                    <div class="like-item" title="Thích sản phẩm">
                                         <i class="fa-solid fa-heart"></i>
                                     </div>
-                                    <div class="add-to-cart">
+                                    <div class="add-to-cart"  title="Thêm vào giỏ hàng">
                                         <i class="fa-solid fa-cart-plus"></i>
                                     </div>
                                     <div class="buy-now">

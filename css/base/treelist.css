@@ -27,7 +27,7 @@ summary::-webkit-details-marker {
 }
 
 .tree-nav__item .tree-nav__item {
-    margin-left: 1.4rem;
+    margin-left: 2rem;
 }
 
 .tree-nav__item.is-expandable[open]>.tree-nav__item-title::before {
@@ -59,7 +59,7 @@ summary::-webkit-details-marker {
     outline: 0;
     color: #111;
     font-size: 14px;
-    line-height: 28px;
+    line-height: 30px;
 }
 
 .tree-nav__item-title .icon {

@@ -49,6 +49,10 @@
     background-color: #186CD8;
 }
 
+.filter-item.active_{
+    background-color: #3be0b7;
+}
+
 .filter-item:hover{
     cursor: pointer;
     transform: scale(1.09);

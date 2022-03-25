@@ -82,6 +82,7 @@
     align-items: center;
     color: #FEE7E5;
     cursor: pointer;
+    text-decoration: none;
 }
 
 .menu-item:hover{

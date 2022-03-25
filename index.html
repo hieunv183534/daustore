@@ -23,6 +23,7 @@
 <body>
     <!-- start nav-bar -->
     <input type="checkbox" name="" id="open-menu-status">
+    <input type="checkbox" name="" id="open-category-status">
     <div class="nav-bar">
         <div class="nav-bar-left">
             <div class="logo"></div>
@@ -68,10 +69,10 @@
                 <div class="logo"></div>
                 <h3>Dâu Store</h3>
             </span>
-            <div class="menu-item">
+            <label class="menu-item" for="open-category-status">
                 <i class="fa fa-clipboard-list"></i>
                 <p>Danh mục sản phẩm</p>
-            </div>
+            </label>
             <label class="open-menu" for="open-menu-status">
                 <i class="fa fa-bars" style="color: #FEE7E5;"></i>
             </label>
@@ -115,6 +116,47 @@
         </div>
     </div>
     <label class="nav-overlay" for="open-menu-status"></label>
+    <div class="category-bar">
+        <label class="close-category" for="open-category-status">
+            <i class="fa fa-times"></i>
+        </label>
+        <nav class="tree-nav">
+            <details class="tree-nav__item is-expandable">
+                <summary class="tree-nav__item-title">Quần áo</summary>
+                <div class="tree-nav__item">
+                    <a class="tree-nav__item-title">Tất cả</a>
+                    <a class="tree-nav__item-title">Mũ</a>
+                    <a class="tree-nav__item-title">Giày</a>
+                    <a class="tree-nav__item-title">Áo</a>
+                </div>
+                <details class="tree-nav__item is-expandable">
+                    <summary class="tree-nav__item-title">Quần</summary>
+                    <div class="tree-nav__item">
+                        <a class="tree-nav__item-title">Tất cả quần</a>
+                        <a class="tree-nav__item-title">Quần jean</a>
+                        <a class="tree-nav__item-title">Quẩn đùi</a>
+                    </div>
+                </details>
+            </details>
+            <details class="tree-nav__item is-expandable">
+                <summary class="tree-nav__item-title">Phụ kiện</summary>
+                <div class="tree-nav__item">
+                    <a class="tree-nav__item-title">Bông tai</a>
+                    <a class="tree-nav__item-title">Lắc</a>
+                    <a class="tree-nav__item-title">Dây chuyền</a>
+                </div>
+            </details>
+            <details class="tree-nav__item is-expandable">
+                <summary class="tree-nav__item-title">Đồ ăn</summary>
+                <div class="tree-nav__item">
+                    <a class="tree-nav__item-title">Nhung hươu</a>
+                    <a class="tree-nav__item-title">Đông trùng</a>
+                    <a class="tree-nav__item-title">Yến sào</a>
+                </div>
+            </details>
+        </nav>
+    </div>
+    <label class="category-overlay" for="open-category-status"></label>
     <!-- end nav-bar -->
     <div class="content">
         <div class="grid wide">
@@ -299,14 +341,16 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item" title="Thích sản phẩm">
                                         <i class="fa-solid fa-heart"></i>
                                     </div>
-                                    <div class="add-to-cart"  title="Thêm vào giỏ hàng">
+                                    <div class="add-to-cart" title="Thêm vào giỏ hàng">
                                         <i class="fa-solid fa-cart-plus"></i>
                                     </div>
                                     <div class="buy-now">
@@ -321,8 +365,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -343,8 +389,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -365,8 +413,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -387,8 +437,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -409,8 +461,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -431,8 +485,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -453,8 +509,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -475,8 +533,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -497,8 +557,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -519,8 +581,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -541,8 +605,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -563,8 +629,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -585,8 +653,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -607,8 +677,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">
@@ -629,8 +701,10 @@
                                 <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
                                 <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
                                 <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font></p>
-                                    <p class="real-price">150000 <font>đ</font></p>
+                                    <p class="sale-price">130000 <font>đ</font>
+                                    </p>
+                                    <p class="real-price">150000 <font>đ</font>
+                                    </p>
                                 </div>
                                 <div class="item-footer">
                                     <div class="like-item">

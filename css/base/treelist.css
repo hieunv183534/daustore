@@ -99,6 +99,24 @@ nav.tree-nav a{
     color: #FEE7E5;
 }
 
+nav.tree-nav a:hover{
+    opacity: 0.8;
+}
+
 a.tree-nav__item-title.active{
     background-color: #186CD8;
+}
+
+.picked-category{
+    display: flex;
+    align-items: center;
+    color: #444444;
+}
+.picked-category i{
+    font-size: 20px;
+    margin-right: 5px;
+    color: #ff7ff7;
+}
+.picked-category h4{
+    margin: 5px 0;
 }

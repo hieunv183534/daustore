@@ -64,7 +64,7 @@ summary::-webkit-details-marker {
 
 @media screen and (max-width:1023px) {
     .tree-nav__item-title {
-        line-height: 35px;
+        line-height: 40px;
     }
 }
 
@@ -88,4 +88,17 @@ summary::-webkit-details-marker {
 
 .tree-nav__item-title::-webkit-details-marker {
     display: none;
+}
+
+nav.tree-nav a{
+    background-color: #ff7ff7;
+    border: 1px solid #ccc ;
+    padding-left: 10px;
+    padding-right: 10px;
+    border-radius: 6px;
+    color: #FEE7E5;
+}
+
+a.tree-nav__item-title.active{
+    background-color: #186CD8;
 }

@@ -177,6 +177,19 @@
         transition: 0.3s;
     }
 
+    .tree-bar-wrapper{
+        width: auto;
+        height: auto;
+        max-height: 98%;
+        overflow-y: auto;
+        padding-right: 15px;
+    }
+
+    .tree-bar-wrapper::-webkit-scrollbar {
+        width: 2px;
+        background-color: #F1F1F1;
+    }
+
     #open-menu-status:checked ~ .menu-bar{
         transform: translate(0%);
     }

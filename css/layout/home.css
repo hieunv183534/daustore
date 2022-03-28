@@ -229,6 +229,9 @@
 .main-item-price{
     border-top: 1px solid #bbb;
     border-bottom: 1px solid #bbb;
+    padding: 20px 0;
+    display: flex;
+    align-items: center;
 }
 
 .main-item-quantity{
@@ -301,6 +304,25 @@
         align-items: center ;
         border: 1px solid #bbb;
     }
+}
+
+
+.main-sale-price{
+    color: #ff7ff7;
+    font-weight: 600;
+    font-size: 26px;
+    text-shadow: 2px 2px 3px #FF0000;
+    line-height: 26px;
+    margin-left: 20px;
+}
+
+.main-real-price{
+    color: #0066CC;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 26px;
+    text-decoration:line-through;
+    margin-left: 12px;
 }
 
 

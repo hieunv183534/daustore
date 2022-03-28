@@ -374,7 +374,6 @@
     box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
     overflow-y: auto;
-    padding-top: 30px;
 }
 
 .notification-list::-webkit-scrollbar{
@@ -391,11 +390,9 @@
 }
 
 .close-notification{
-    position: absolute;
-    top: -2px;
-    left: 140px;
-    font-size: 26px;
-    color: #ff7ff7;
+    position: fixed;
+    font-size: 30px;
+    color: #ff7ff755;
     cursor: pointer;
 }
 

@@ -589,6 +589,8 @@
             item.addEventListener('click',()=>{
                 document.querySelector('.notification-list').style = 
                 `z-index:112 ;left:${item.getBoundingClientRect().right - 300}px; top:${item.getBoundingClientRect().top+50}px;`;
+                document.querySelector('.close-notification').style = 
+                `left:${item.getBoundingClientRect().right -42}px; top:${item.getBoundingClientRect().top+50}px;`;
             })
         })
 

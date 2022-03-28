@@ -309,38 +309,7 @@
     color: #ff7ff7;
 }
 
-@media screen and (max-width:739px) {
-    .item-info-wrapper {
-        height: auto;
-        padding: 0px 20px ;
-    }
 
-    .main-item-price{
-        position: relative;
-    }
-
-    .main-sale-rate{
-        position: absolute;
-        top: -10px;
-        right: -10px;
-    }
-
-    .main-item-description{
-        padding: 0px 20px ;
-    }
-
-    .main-item-footer {
-        position: fixed;
-        bottom: -9px;
-        left: 0px;
-        right: 0px;
-        z-index: 111;
-        background-color: #fff;
-        height: 54px;
-        align-items: center;
-        border: 1px solid #bbb;
-    }
-}
 
 
 .main-sale-price {
@@ -389,4 +358,81 @@
 
 .input-quantity:hover, .input-quantity:focus, .down-quantity:hover, .up-quantity:hover {
     border-color: #D838CD;
+}
+
+/* notification */
+
+.notification-list{
+    width: 300px;
+    height: auto;
+    max-height: 430px;
+    display: flex;
+    flex-direction: column;
+    z-index: -112;
+    position: fixed;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px 4px rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+    overflow-y: auto;
+    padding-top: 30px;
+}
+
+.notification-list::-webkit-scrollbar{
+    width: 4px;
+}
+
+.notification-item{
+    padding: 10px;
+    border-bottom: 1px solid #bbb;
+}
+
+.notification-item.active{
+    background-color: #ff7ff733;
+}
+
+.close-notification{
+    position: absolute;
+    top: -2px;
+    left: 140px;
+    font-size: 26px;
+    color: #ff7ff7;
+    cursor: pointer;
+}
+
+
+@media screen and (max-width:739px) {
+    .item-info-wrapper {
+        height: auto;
+        padding: 0px 20px ;
+    }
+
+    .main-item-price{
+        position: relative;
+    }
+
+    .main-sale-rate{
+        position: absolute;
+        top: -10px;
+        right: -10px;
+    }
+
+    .main-item-description{
+        padding: 0px 20px ;
+    }
+
+    .main-item-footer {
+        position: fixed;
+        bottom: -9px;
+        left: 0px;
+        right: 0px;
+        z-index: 111;
+        background-color: #fff;
+        height: 54px;
+        align-items: center;
+        border: 1px solid #bbb;
+    }
+
+    .notification-list{
+        top: 100px !important;
+    }
 }

@@ -470,6 +470,49 @@
     color: red;
 }
 
+.cart-total{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+    border: 1px solid #d838cd;
+    margin-bottom: 10px;
+}
+
+.total-price{
+    text-align: right;
+}
+
+.cart-total span{
+    display: flex;
+    align-items: center;
+    justify-content: flex-end
+}
+
+.buy-continue,.buy-total{
+    width: auto;
+    height: 40px;
+    border-radius: 4px;
+    background-color: #ff7ff7;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    padding: 0 20px;
+    color: #FEE7E5;
+    margin: 0px 20px;
+    cursor: pointer;
+}
+
+.total-sale-price{
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.total-save-money{
+    font-size: 12px;
+}
+
 @media screen and (max-width:739px) {
     .item-info-wrapper {
         height: auto;
@@ -510,4 +553,16 @@
         flex-direction: column;
     }
 
+    .cart-total {
+        position: fixed;
+        bottom: 7px;
+        background-color: #bbb;
+        width: 100%;
+        z-index: 115;
+        box-shadow: 0px 0px 4px 4px #ff7ff799;
+    }
+
+    .buy-continue{
+        display: none;
+    }
 }

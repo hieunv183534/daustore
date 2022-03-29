@@ -555,7 +555,7 @@
 
     .cart-total {
         position: fixed;
-        bottom: 7px;
+        bottom: 2px;
         background-color: #bbb;
         width: 100%;
         z-index: 115;

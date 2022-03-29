@@ -13,17 +13,35 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/layout/home.css">
     <link rel="stylesheet" href="./carousel.css">
-    <style>
-        .itemm {
-            background-color: #ff7ff7;
-        }
-    </style>
 </head>
 
 <body>
     <!-- start nav-bar -->
     <input type="checkbox" name="" id="open-menu-status">
     <input type="checkbox" name="" id="open-category-status">
+    <div class="notification-list">
+        <div class="close-notification"><i class="fa fa-times"></i></div>
+        <div class="notification-item active">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer
+            quas ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+    </div>
     <div class="nav-bar">
         <div class="nav-bar-left">
             <div class="logo"></div>
@@ -37,7 +55,7 @@
             </button>
         </div>
         <div class="nav-bar-center">
-            <div class="menu-item">
+            <div class="menu-item cart">
                 <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
                 <p>Giỏ hàng</p>
             </div>
@@ -47,7 +65,7 @@
             </div>
         </div>
         <div class="nav-bar-right">
-            <div class="menu-item">
+            <div class="menu-item notification">
                 <i class="fa fa-bell"></i>
                 <p>Thông báo</p>
             </div>
@@ -85,11 +103,11 @@
                 </button>
             </span>
             <span>
-                <div class="menu-item">
+                <div class="menu-item cart">
                     <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
                     <p>Giỏ hàng</p>
                 </div>
-                <div class="menu-item">
+                <div class="menu-item notification">
                     <i class="fa fa-bell"></i>
                     <p>Thông báo</p>
                 </div>
@@ -820,6 +838,7 @@
         }(document, 'script', 'facebook-jssdk'));
     </script>
     <script src="./carousel.js"></script>
+
     <script>
         document.querySelectorAll('.item-item').forEach(item => {
             item.addEventListener('click', () => {
@@ -831,6 +850,25 @@
             item.addEventListener('click', (e) => {
                 e.stopImmediatePropagation();
                 alert("like")
+            })
+        })
+
+        document.querySelectorAll('.menu-item.notification').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelector('.notification-list').style =
+                    `z-index:112 ;left:${item.getBoundingClientRect().right - 300}px; top:${item.getBoundingClientRect().top + 50}px;`;
+                document.querySelector('.close-notification').style =
+                    `left:${item.getBoundingClientRect().right - 42}px; top:${item.getBoundingClientRect().top + 50}px;`;
+            })
+        })
+
+        document.querySelector('.close-notification').addEventListener('click', () => {
+            document.querySelector('.notification-list').style = 'z-index:-112'
+        })
+
+        document.querySelectorAll('.menu-item.cart').forEach(item=>{
+            item.addEventListener('click',()=>{
+                window.location.href = "./page/cart.html"
             })
         })
     </script>

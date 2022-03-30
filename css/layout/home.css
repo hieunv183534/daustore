@@ -637,6 +637,7 @@
         width: 100%;
         z-index: 115;
         box-shadow: 0px 0px 4px 4px #ff7ff799;
+        margin-bottom: 0px !important;
     }
 
     .buy-continue{

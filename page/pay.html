@@ -188,7 +188,91 @@
                 <div class="col l-3 m-6 c-12"><i class="fa-solid fa-3"></i>. THÔNG TIN ĐƠN HÀNG</div>
                 <div class="col l-3 m-6 c-12"><i class="fa-solid fa-4"></i>. XÁC NHẬN</div>
             </div>
-            <div class="row pay-content"></div>
+            <div class="row buyer-info" >
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Họ và tên:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Số điện thoại:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Email:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Tỉnh/Thành phố:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Quận/Huyện:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Xã/Phường:</div>
+                        <input type="text" class="input">
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Địa chỉ(số nhà, tên đường):</div>
+                        <div class="textarea-wrapper">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Ghi chú cho đơn hàng:</div>
+                        <div class="textarea-wrapper">
+                            <textarea></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button to-2">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row payment-methods" style="display: none;">
+                <div class="col l-12 m-12 c-12 payment-methods-title">
+                    Vui lòng chọn 1 trong các phương thức thanh toán
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod1" class="paymethod-item"><img src="https://quehuongshop.vn/assets/images/others/icon_cod.png" alt=""> Thanh toán tiền mặt <input type="checkbox" name="" id="paymethod1"></label>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod2" class="paymethod-item"><img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png?20201011055544" alt=""> Thanh toán momo<input type="checkbox" name="" id="paymethod2"></label>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod3" class="paymethod-item"><img src="https://vnpay.vn/_nuxt/img/logo-primary.55e9c8c.svg" alt=""> Thanh toán VNPay<input type="checkbox" name="" id="paymethod3"></label>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod4" class="paymethod-item"><img src="https://image.shutterstock.com/image-photo/image-260nw-399995245.jpg" alt=""> Thanh toán chuyển khoản<input type="checkbox" name="" id="paymethod4"></label>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button return-1">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <div class="move-button to-2">
+                        <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
     <div class="footer">

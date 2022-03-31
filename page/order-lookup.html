@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tra cứu đơn hàng</title>
+    <link rel="icon" type="image/png" href="../favicon.ico">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.0/css/all.min.css"
+        integrity="sha512-10/jx2EXwxxWqCLX/hHth/vu2KY3jCF70dCQB8TSgNjbCVAC/8vai53GfMDrO2Emgwccf2pJqxct9ehpzG+MTw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="../css/main.css">
+    <link rel="stylesheet" href="../css/layout/home.css">
+</head>
+
+<body>
+    <!-- start nav-bar -->
+    <input type="checkbox" name="" id="open-menu-status">
+    <input type="checkbox" name="" id="open-category-status">
+    <div class="notification-list">
+        <div class="close-notification"><i class="fa fa-times"></i></div>
+        <div class="notification-item active">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer
+            quas ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
+            ullamcorper beatae corporis litora consectetuer</div>
+    </div>
+    <div class="nav-bar">
+        <div class="nav-bar-left">
+            <div class="logo"></div>
+            <a class="menu-item" href="../index.html#itemCategory">
+                <i class="fa fa-clipboard-list"></i>
+                <p>Danh mục sản phẩm</p>
+            </a>
+            <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
+            <button class="button button-secondary button-icon">
+                <i class="fa fa-magnifying-glass" style="color: #ff7ff7;"></i>
+            </button>
+        </div>
+        <div class="nav-bar-center">
+            <div class="menu-item cart">
+                <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
+                <p>Giỏ hàng</p>
+            </div>
+            <div class="menu-item">
+                <i class="fa fa-clock-rotate-left"></i>
+                <p>Tra cứu đơn hàng</p>
+            </div>
+        </div>
+        <div class="nav-bar-right">
+            <div class="menu-item notification">
+                <i class="fa fa-bell"></i>
+                <p>Thông báo</p>
+            </div>
+            <a class="menu-item" href="#lienhe">
+                <i class="fa fa-question"></i>
+                <p>Hỗ trợ</p>
+            </a>
+            <div class="menu-item">
+                <p>Đăng nhập</p>
+            </div>
+            <div class="menu-item">
+                <p>Đăng kí</p>
+            </div>
+        </div>
+    </div>
+    <div class="nav-mobile">
+        <div class="nav-top">
+            <span>
+                <div class="logo"></div>
+                <h3>Dâu Store</h3>
+            </span>
+            <label class="menu-item" for="open-category-status">
+                <i class="fa fa-clipboard-list"></i>
+                <p>Danh mục sản phẩm</p>
+            </label>
+            <label class="open-menu" for="open-menu-status">
+                <i class="fa fa-bars" style="color: #FEE7E5;"></i>
+            </label>
+        </div>
+        <div class="nav-bottom">
+            <span>
+                <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
+                <button class="button button-secondary button-icon">
+                    <i class="fa fa-magnifying-glass" style="color: #ff7ff7;"></i>
+                </button>
+            </span>
+            <span>
+                <div class="menu-item cart">
+                    <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
+                    <p>Giỏ hàng</p>
+                </div>
+                <div class="menu-item notification">
+                    <i class="fa fa-bell"></i>
+                    <p>Thông báo</p>
+                </div>
+            </span>
+        </div>
+    </div>
+    <div class="menu-bar">
+        <label class="close-menu" for="open-menu-status">
+            <i class="fa fa-times"></i>
+        </label>
+        <div class="menu-item">
+            <i class="fa fa-clock-rotate-left"></i>
+            <p>Tra cứu đơn hàng</p>
+        </div>
+        <a class="menu-item" href="#lienhe">
+            <i class="fa fa-question"></i>
+            <p>Hỗ trợ</p>
+        </a>
+        <div class="menu-item">
+            <p>Đăng nhập</p>
+        </div>
+        <div class="menu-item">
+            <p>Đăng kí</p>
+        </div>
+    </div>
+    <label class="nav-overlay" for="open-menu-status"></label>
+    <div class="category-bar">
+        <label class="close-category" for="open-category-status">
+            <i class="fa fa-times"></i>
+        </label>
+        <div class="tree-bar-wrapper">
+            <nav class="tree-nav">
+                <span class="picked-category"><i class="fa-solid fa-crosshairs"></i>
+                    <h4>Tất cả quần áo</h4>
+                </span>
+                <details class="tree-nav__item is-expandable">
+                    <summary class="tree-nav__item-title">Quần áo</summary>
+                    <div class="tree-nav__item">
+                        <a class="tree-nav__item-title active">Tất cả</a>
+                        <a class="tree-nav__item-title">Mũ</a>
+                        <a class="tree-nav__item-title">Giày</a>
+                        <a class="tree-nav__item-title">Áo</a>
+                    </div>
+                    <details class="tree-nav__item is-expandable">
+                        <summary class="tree-nav__item-title">Quần</summary>
+                        <div class="tree-nav__item">
+                            <a class="tree-nav__item-title">Tất cả quần</a>
+                            <a class="tree-nav__item-title">Quần jean</a>
+                            <a class="tree-nav__item-title">Quẩn đùi</a>
+                        </div>
+                    </details>
+                </details>
+                <details class="tree-nav__item is-expandable">
+                    <summary class="tree-nav__item-title">Phụ kiện</summary>
+                    <div class="tree-nav__item">
+                        <a class="tree-nav__item-title">Bông tai</a>
+                        <a class="tree-nav__item-title">Lắc</a>
+                        <a class="tree-nav__item-title">Dây chuyền</a>
+                    </div>
+                </details>
+                <details class="tree-nav__item is-expandable">
+                    <summary class="tree-nav__item-title">Đồ ăn</summary>
+                    <div class="tree-nav__item">
+                        <a class="tree-nav__item-title">Nhung hươu</a>
+                        <a class="tree-nav__item-title">Đông trùng</a>
+                        <a class="tree-nav__item-title">Yến sào</a>
+                    </div>
+                </details>
+            </nav>
+        </div>
+    </div>
+    <label class="category-overlay" for="open-category-status"></label>
+    <!-- end nav-bar -->
+    <div class="content">
+        <div class="grid wide">
+            <div class="row search-order">
+                <div class="col l-4 l-o-3 m-5 m-o-2 c-7 c-o-1">
+                    <input type="text" class="input" placeholder="Nhập mã đơn hoặc số điện thoại" style="width:100%">
+                </div>
+                <div class="col l-2 m-3 c-4">
+                    <button class="button button-primary">Kiểm tra đơn hàng</button>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col l-12 m-12 c-12 table-wrapper">
+                    <table>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block">
+                            <h4 class="footer-title"><b>HỖ TRỢ KHÁCH HÀNG</b></h4>
+                            <a href="" class="footer-item">Trung tâm trợ giúp</a>
+                            <a href="" class="footer-item">An toàn mua bán</a>
+                            <a href="" class="footer-item">Quy định cần biết</a>
+                            <a href="" class="footer-item">Liên hệ hỗ trợ</a>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block">
+                            <h4 class="footer-title"><b>VỀ DÂU STORE</b></h4>
+                            <a href="" class="footer-item">Giới thiệu</a>
+                            <a href="" class="footer-item">Tuyển dụng</a>
+                            <a href="" class="footer-item">Truyền thông</a>
+                            <a href="" class="footer-item">Blog</a>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block" id="lienhe">
+                            <h4 class="footer-title"><b>LIÊN HỆ</b> <span
+                                    style="font-weight: lighter; font-size: 10px;">(Click vào để liên hệ ngay)</span>
+                            </h4>
+                            <a href="http://maps.google.com/?q=37 P. Bằng Liệt, Hoàng Liệt, Hoàng Mai, Hà Nội, Vietnam"
+                                target="_blank" class="footer-item"><i class="fa-solid fa-location-dot"></i>37 Bằng
+                                Liệt,Hoàng Mai,Hà
+                                Nội</a>
+                            <a href="mailto:baotram010298@gmail.com" class="footer-item"><i
+                                    class="fa-solid fa-envelope"></i>baotram010298@gmail.com</a>
+                            <a href="tel:0974300198" class="footer-item"><i class="fa-solid fa-phone"></i>0974300198</a>
+                            <a href="" class="footer-item"><i class="fa-solid fa-clock"></i>Tất cả ngày giờ trong
+                                tuần</a>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block">
+                            <h4 class="footer-title"><b>KẾT NỐI VỚI CHÚNG TÔI</b></h4>
+                            <div class="row">
+                                <a href="https://www.facebook.com/D%C3%A2u-store-104210735561967" class="footer-item">
+                                    <img src="https://static.chotot.com/storage/default/facebook.svg" alt="">
+                                </a>
+                                <a href="" class="footer-item">
+                                    <img src="https://static.chotot.com/storage/default/youtube.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="" class="footer-item"><img src="../assets/image/tiktok-round-color.png" alt=""
+                                        style="transform: scale(1.14);"></a>
+                                <a href="" class="footer-item"><img src="../assets/image/instagram.png" alt=""
+                                        style="transform: scale(1.14);"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Messenger Plugin chat Code -->
+        <div id="fb-root"></div>
+
+        <!-- Your Plugin chat code -->
+        <div id="fb-customer-chat" class="fb-customerchat">
+        </div>
+
+        <script>
+            var chatbox = document.getElementById('fb-customer-chat');
+            chatbox.setAttribute("page_id", "104210735561967");
+            chatbox.setAttribute("attribution", "biz_inbox");
+        </script>
+
+        <!-- Your SDK code -->
+        <script>
+            window.fbAsyncInit = function () {
+                FB.init({
+                    xfbml: true,
+                    version: 'v13.0'
+                });
+            };
+
+            (function (d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s); js.id = id;
+                js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+        </script>
+        <script src="../js/common/common.js"></script>
+        <script src="../js/model/dataList.js"></script>
+        <script src="../js/model/tableColumns.js"></script>
+        <script>
+
+            window.onload = () => {
+                loadTable(tableColumns.Orders, listDatas.Orders,1);
+            }
+
+            document.querySelectorAll('.item-item').forEach(item => {
+                item.addEventListener('click', () => {
+                    window.location.href = "./page/item.html";
+                })
+            })
+
+            document.querySelectorAll('.like-item').forEach(item => {
+                item.addEventListener('click', (e) => {
+                    e.stopImmediatePropagation();
+                    alert("like")
+                })
+            })
+
+            document.querySelectorAll('.menu-item.notification').forEach(item => {
+                item.addEventListener('click', () => {
+                    document.querySelector('.notification-list').style =
+                        `z-index:112 ;left:${item.getBoundingClientRect().right - 300}px; top:${item.getBoundingClientRect().top + 50}px;`;
+                    document.querySelector('.close-notification').style =
+                        `left:${item.getBoundingClientRect().right - 42}px; top:${item.getBoundingClientRect().top + 50}px;`;
+                })
+            })
+
+            document.querySelector('.close-notification').addEventListener('click', () => {
+                document.querySelector('.notification-list').style = 'z-index:-112'
+            })
+
+            document.querySelectorAll('.menu-item.cart').forEach(item => {
+                item.addEventListener('click', () => {
+                    if (document.querySelector('#thisIsIndexPage')) {
+                        window.location.href = "./page/cart.html"
+                    } else {
+                        window.location.href = "./cart.html"
+                    }
+                })
+            })
+
+
+        </script>
+</body>
+
+</html>

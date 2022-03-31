@@ -8,9 +8,9 @@
 @import url('base/toast-messenger.css');
 @import url('base/loader.css');
 @import url('base/text-area.css'); 
-/* @import url('base/table.css'); */
+@import url('base/table.css');
 /* @import url('base/dropdown.css'); */
-/* @import url('base/checkbox.css'); */
+@import url('base/checkbox.css');
 /* @import url('base/popup.css'); */
 /* @import url('base/qr.css'); */
 @font-face {

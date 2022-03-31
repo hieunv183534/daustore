@@ -590,6 +590,34 @@
     width: auto;
 }
 
+/* order-lookup */
+
+.search-order{
+    padding: 30px;
+    background-color: rgba(47, 196, 201, 0.7);
+}
+
+/* <div class="list-item-order">
+    <div class="item-order">
+        <img src="" alt="">
+        <span></span>
+    </div>
+</div> */
+
+.list-item-order{
+    padding: 10px;
+}
+
+.item-order{
+    display: flex;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.item-order img{
+    margin-right: 10px;
+}
+
 @media screen and (max-width:739px) {
     .item-info-wrapper {
         height: auto;

@@ -54,30 +54,30 @@
             </button>
         </div>
         <div class="nav-bar-center">
-            <div class="menu-item cart">
+            <a class="menu-item cart" href="./cart.html">
                 <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
                 <p>Giỏ hàng</p>
-            </div>
-            <div class="menu-item">
+            </a>
+            <a class="menu-item" href="./order-lookup.html">
                 <i class="fa fa-clock-rotate-left"></i>
                 <p>Tra cứu đơn hàng</p>
-            </div>
+            </a>
         </div>
         <div class="nav-bar-right">
             <div class="menu-item notification">
                 <i class="fa fa-bell"></i>
                 <p>Thông báo</p>
             </div>
-            <div class="menu-item">
+            <a class="menu-item" href="#lienhe">
                 <i class="fa fa-question"></i>
                 <p>Hỗ trợ</p>
-            </div>
-            <div class="menu-item">
+            </a>
+            <a class="menu-item" href="./login.html">
                 <p>Đăng nhập</p>
-            </div>
-            <div class="menu-item">
+            </a>
+            <a class="menu-item" href="./register.html">
                 <p>Đăng kí</p>
-            </div>
+            </a>
         </div>
     </div>
     <div class="nav-mobile">
@@ -102,10 +102,10 @@
                 </button>
             </span>
             <span>
-                <div class="menu-item cart">
+                <a class="menu-item cart" href="./cart.html">
                     <i class="fa fa-cart-shopping" style="font-size: 24px;"></i>
                     <p>Giỏ hàng</p>
-                </div>
+                </a>
                 <div class="menu-item notification">
                     <i class="fa fa-bell"></i>
                     <p>Thông báo</p>
@@ -117,20 +117,20 @@
         <label class="close-menu" for="open-menu-status">
             <i class="fa fa-times"></i>
         </label>
-        <div class="menu-item">
+        <a class="menu-item" href="./order-lookup.html">
             <i class="fa fa-clock-rotate-left"></i>
             <p>Tra cứu đơn hàng</p>
-        </div>
-        <div class="menu-item">
+        </a>
+        <a class="menu-item" href="#lienhe">
             <i class="fa fa-question"></i>
             <p>Hỗ trợ</p>
-        </div>
-        <div class="menu-item">
+        </a>
+        <a class="menu-item" href="./login.html">
             <p>Đăng nhập</p>
-        </div>
-        <div class="menu-item">
+        </a>
+        <a class="menu-item" href="./register.html">
             <p>Đăng kí</p>
-        </div>
+        </a>
     </div>
     <label class="nav-overlay" for="open-menu-status"></label>
     <div class="category-bar">
@@ -348,7 +348,7 @@
                     </div>
                 </div>
                 <div class="col l-3 m-6 c-8 c-o-2">
-                    <div class="footer-block">
+                    <div class="footer-block" id="lienhe">
                         <h4 class="footer-title"><b>LIÊN HỆ</b> <span
                                 style="font-weight: lighter; font-size: 10px;">(Click vào để liên hệ ngay)</span></h4>
                         <a href="http://maps.google.com/?q=37 P. Bằng Liệt, Hoàng Liệt, Hoàng Mai, Hà Nội, Vietnam"
@@ -439,16 +439,6 @@
 
         document.querySelector('.close-notification').addEventListener('click', () => {
             document.querySelector('.notification-list').style = 'z-index:-112'
-        })
-
-        document.querySelectorAll('.menu-item.cart').forEach(item => {
-            item.addEventListener('click', () => {
-                if (document.querySelector('#thisIsIndexPage')) {
-                    window.location.href = "./page/cart.html"
-                } else {
-                    window.location.href = "./cart.html"
-                }
-            })
         })
     </script>
 </body>

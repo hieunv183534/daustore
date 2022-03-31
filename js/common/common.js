@@ -149,6 +149,9 @@ function loadTable(columns, datas, startIndex) {
                                                 <span> <b>X${i.quantity}</b> ${i.name}</span>
                                             </div>`));
                 })
+            } else if (col.format == "orderer") {
+                let orderer = item[`${col.field}`];
+                value = `<b>${orderer.name}</b>,<br>${orderer.phone},<br>${orderer.address}`;
             }
             else {
                 value = item[`${col.field}`];
@@ -157,7 +160,11 @@ function loadTable(columns, datas, startIndex) {
                 var td = parseHTML(`<td style="${col.style}"></td>`);
                 td.append(value);
                 tr.append(td);
-            } else {
+            } else if (col.format == "orderer") {
+                var td = parseHTML(`<td style="${col.style}">${value}</td>`);
+                tr.append(td);
+            }
+            else {
                 var td = parseHTML(`<td style="${col.style}"><p>${value}</p></td>`);
                 tr.append(td);
             }

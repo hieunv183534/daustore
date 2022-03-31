@@ -22,7 +22,8 @@ class tableColumns {
             title : "Người đặt",
             width : "min-width: 200px;",
             style : "text-align: center;",
-            field: 'orderer'
+            field: 'orderer',
+            format: 'orderer'
         },
         {
             title : "Trạng thái đơn",

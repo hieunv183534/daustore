@@ -672,13 +672,14 @@
     width: 400px;
     position: relative;
     margin-top: 20px;
-    max-width: 90% !important;
+    max-width: 76% !important;
 }
 
 .orther-login h3{
     position: absolute;
     top: -31px;
-    left: 35%;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #fff;
 }
 

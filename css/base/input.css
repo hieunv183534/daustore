@@ -9,6 +9,10 @@
     font-size: 13px;
 }
 
+.input::placeholder{
+    color: #bbb;
+}
+
 .input:focus {
     border-color: #ff7ff7;
 }

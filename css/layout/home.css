@@ -599,6 +599,8 @@
 
 .list-item-order {
     padding: 10px;
+    max-height: 125px;
+    overflow-y: auto;
 }
 
 .item-order {

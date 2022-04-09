@@ -808,6 +808,33 @@
             </div>
         </div>
     </div>
+
+    <div class="to-top" style="position: fixed; bottom: 10px; right: 10px; cursor: pointer;">
+        <i class="fa-solid fa-angle-up"></i>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script>
+        //Khi người dùng cuộn chuột thì gọi hàm scrollFunction
+        window.onscroll = function () { scrollFunction() };
+        // khai báo hàm scrollFunction
+        function scrollFunction() {
+            // Kiểm tra vị trí hiện tại của con trỏ so với nội dung trang
+            if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
+                //nếu lớn hơn 20px thì hiện button
+                document.querySelector('.to-top').style.display = "block";
+            } else {
+                //nếu nhỏ hơn 20px thì ẩn button
+                document.querySelector('.to-top').style.display = "none";
+            }
+        }
+        $(".to-top").click(function () {
+            $("html, body").animate({ scrollTop: 0 }, "slow");
+            return false;
+        });
+    </script>
     <!-- Messenger Plugin chat Code -->
     <div id="fb-root"></div>
 

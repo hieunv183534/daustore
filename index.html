@@ -817,7 +817,9 @@
         integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script>
-        alert("Trang web đang trong thời gian hoàn thiện!");
+        setTimeout(() => {
+            alert("Trang web đang trong thời gian hoàn thiện!");
+        }, 3000);
         //Khi người dùng cuộn chuột thì gọi hàm scrollFunction
         window.onscroll = function () { scrollFunction() };
         // khai báo hàm scrollFunction

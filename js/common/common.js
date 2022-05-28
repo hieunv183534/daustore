@@ -219,7 +219,7 @@ function showToastMessenger(type, text) {
     toastMessenger.setAttribute('isShow', 'show');
     setTimeout(() => {
         toastMessenger.setAttribute('isShow', 'hide');
-    }, 4000);
+    }, 2000);
 }
 
 

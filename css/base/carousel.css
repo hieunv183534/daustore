@@ -79,7 +79,7 @@ ul {
 }
 
 .slick-active button {
-    background: red;
+    background: #ff7ff7;
 }
 
 .slick-slide.slick-cloned{

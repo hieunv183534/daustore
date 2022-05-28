@@ -16,6 +16,7 @@ class HomePage extends Base {
         };
         this.loadListItem();
         this.initEvent();
+        this.loadCategory();
     }
 
     initEvent() {

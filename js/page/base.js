@@ -7,7 +7,6 @@ class Base {
         this.total = 0;
         this.API = new BaseApi();
         this.initEventBase();
-        this.loadCategory();
     }
 
     initEventBase() {
@@ -56,8 +55,8 @@ class Base {
             })
         });
 
-        document.querySelectorAll('.btn-search').forEach(s=>{
-            s.addEventListener('click',()=>{
+        document.querySelectorAll('.btn-search').forEach(s => {
+            s.addEventListener('click', () => {
                 this.loadListItem();
             })
         })
@@ -162,7 +161,7 @@ class Base {
         listItem.innerHTML = '';
         items.forEach(item => {
             let itemElement = parseHTML(`<div class="col l-3 m-4 c-6">
-                                            <div class="item-item">
+                                            <div class="item-item" data='${JSON.stringify(item)}'>
                                                 <div class="sale-rate">-${item.saleRate}%</div>
                                                 <img src="${getMediaUrl(item.medias.split(' ')[0])}">
                                                 <div class="item-title">${item.itemName}</div>
@@ -187,6 +186,40 @@ class Base {
                                         </div>`);
             listItem.append(itemElement);
         });
+
+        document.querySelectorAll('.item-item').forEach(itemElement => {
+            var itemData = JSON.parse(itemElement.getAttribute('data'));
+            itemElement.addEventListener('click', () => {
+                window.location.href = `./page/item.html?itemId=${itemData.itemId}`;
+            });
+
+            itemElement.querySelector('.like-item').addEventListener('click', (e) => {
+                e.stopImmediatePropagation();
+                alert("Like item" + itemData.itemName);
+            });
+
+            itemElement.querySelector('.add-to-cart').addEventListener('click', (e) => {
+                e.stopImmediatePropagation();
+                let cartJSON = localStorage.getItem('cart');
+                let cart = [];
+                if (cartJSON) {
+                    cart = JSON.parse(cartJSON);
+                }
+                let sameItem = cart.find(i => i.itemId === itemData.itemId);
+                if (sameItem) {
+                    sameItem.quantity += 1;
+                } else {
+                    cart.push({ itemId : itemData.itemId, quantity: 1 });
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                showToastMessenger('success', `Thêm thành công 1 ${itemData.itemName} vào giỏ hàng!`)
+            });
+
+            itemElement.querySelector('.buy-now').addEventListener('click', (e) => {
+                e.stopImmediatePropagation();
+                alert("Mua ngay " + itemData.itemName);
+            });
+        })
     }
 
     initEventListItem() {
@@ -196,4 +229,5 @@ class Base {
     prePage() { }
     nextPage() { }
     loadListItem() { }
+    loadCart() { }
 }

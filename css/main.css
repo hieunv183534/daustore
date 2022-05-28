@@ -2,17 +2,15 @@
 @import url('base/button.css');
 @import url('base/input.css');
 @import url('base/treelist.css');
-/* @import url('base/combobox.css'); */
 @import url('base/data-list.css');
 @import url('base/radio-button.css');
 @import url('base/toast-messenger.css');
 @import url('base/loader.css');
-@import url('base/text-area.css'); 
+@import url('base/text-area.css');
 @import url('base/table.css');
-/* @import url('base/dropdown.css'); */
 @import url('base/checkbox.css');
-/* @import url('base/popup.css'); */
-/* @import url('base/qr.css'); */
+@import url('base/paging.css');
+
 @font-face {
     font-family: 'NotosansBold';
     src: url('../assets/font/notosans-bold.3ede5aff.woff2') format('woff2');
@@ -42,7 +40,7 @@
     background-color: #B8BCC3;
 }
 
- ::-webkit-scrollbar-thumb:hover {
+::-webkit-scrollbar-thumb:hover {
     background-color: #888888;
 }
 
@@ -55,7 +53,7 @@
     background: #B8BCC3;
 }
 
- ::-webkit-scrollbar-thumb:horizontal:hover {
+::-webkit-scrollbar-thumb:horizontal:hover {
     background: #888888;
 }
 
@@ -80,4 +78,19 @@ button {
     margin: 0;
     padding: 0;
     cursor: pointer;
+}
+
+.to-top {
+    position: fixed;
+    bottom: 90px;
+    right: 10px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    background-color: #FF7FF7;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #F1F1F1;
 }

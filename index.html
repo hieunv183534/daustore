@@ -12,7 +12,8 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="./css/layout/home.css">
-    <link rel="stylesheet" href="./carousel.css">
+    <link rel="stylesheet" href="./css/base/carousel.css">
+    <script src="./lib/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
@@ -20,38 +21,15 @@
     <!-- start nav-bar -->
     <input type="checkbox" name="" id="open-menu-status">
     <input type="checkbox" name="" id="open-category-status">
-    <div class="notification-list">
-        <div class="close-notification"><i class="fa fa-times"></i></div>
-        <div class="notification-item active">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer
-            quas ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-    </div>
     <div class="nav-bar">
         <div class="nav-bar-left">
             <div class="logo"></div>
-            <a class="menu-item" href="#itemCategory">
+            <a class="menu-item" href="#category">
                 <i class="fa fa-clipboard-list"></i>
                 <p>Danh mục sản phẩm</p>
             </a>
             <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
-            <button class="button button-secondary button-icon">
+            <button class="button button-secondary button-icon btn-search">
                 <i class="fa fa-magnifying-glass" style="color: #ff7ff7;"></i>
             </button>
         </div>
@@ -99,7 +77,7 @@
         <div class="nav-bottom">
             <span>
                 <input type="text" class="input search-box" placeholder="Tìm kiếm sản phẩm">
-                <button class="button button-secondary button-icon">
+                <button class="button button-secondary button-icon btn-search">
                     <i class="fa fa-magnifying-glass" style="color: #ff7ff7;"></i>
                 </button>
             </span>
@@ -140,43 +118,11 @@
             <i class="fa fa-times"></i>
         </label>
         <div class="tree-bar-wrapper">
-            <nav class="tree-nav">
-                <span class="picked-category"><i class="fa-solid fa-crosshairs"></i>
-                    <h4>Tất cả quần áo</h4>
-                </span>
-                <details class="tree-nav__item is-expandable">
-                    <summary class="tree-nav__item-title">Quần áo</summary>
-                    <div class="tree-nav__item">
-                        <a class="tree-nav__item-title active">Tất cả</a>
-                        <a class="tree-nav__item-title">Mũ</a>
-                        <a class="tree-nav__item-title">Giày</a>
-                        <a class="tree-nav__item-title">Áo</a>
-                    </div>
-                    <details class="tree-nav__item is-expandable">
-                        <summary class="tree-nav__item-title">Quần</summary>
-                        <div class="tree-nav__item">
-                            <a class="tree-nav__item-title">Tất cả quần</a>
-                            <a class="tree-nav__item-title">Quần jean</a>
-                            <a class="tree-nav__item-title">Quẩn đùi</a>
-                        </div>
-                    </details>
-                </details>
-                <details class="tree-nav__item is-expandable">
-                    <summary class="tree-nav__item-title">Phụ kiện</summary>
-                    <div class="tree-nav__item">
-                        <a class="tree-nav__item-title">Bông tai</a>
-                        <a class="tree-nav__item-title">Lắc</a>
-                        <a class="tree-nav__item-title">Dây chuyền</a>
-                    </div>
-                </details>
-                <details class="tree-nav__item is-expandable">
-                    <summary class="tree-nav__item-title">Đồ ăn</summary>
-                    <div class="tree-nav__item">
-                        <a class="tree-nav__item-title">Nhung hươu</a>
-                        <a class="tree-nav__item-title">Đông trùng</a>
-                        <a class="tree-nav__item-title">Yến sào</a>
-                    </div>
-                </details>
+            <div class="category-main" id="categoryMainx">
+                <font style="color: #186CD8; font-size: 12px;">Đã chọn: </font> <span>Tất cả sản phẩm</span>
+            </div>
+            <nav class="tree-nav" id="categoryx">
+
             </nav>
         </div>
     </div>
@@ -293,26 +239,26 @@
             </div>
         </div>
         <div class="grid wide">
-            <div class="row" style="margin: 10px 0;" id="itemCategory">
+            <div class="row" style="margin: 10px 0;">
                 <div class="col l-12 m-12 c-12">
                     <div class="row filter-bar">
-                        <div class="filter-item col l-2-4 m-2-4 c-4">
+                        <div class="filter-item col l-2-4 m-2-4 c-4 tag-for-item" tag="hot">
                             <i class="fa fa-fire"></i>
                             Mua nhiều
                         </div>
-                        <div class="filter-item col l-2-4 m-2-4 c-4 active">
+                        <div class="filter-item col l-2-4 m-2-4 c-4 tag-for-item active" tag="sale">
                             <i class="fa fa-gift"></i>
                             Khuyến mãi
                         </div>
-                        <div class="filter-item col l-2-4 m-2-4 c-4">
+                        <div class="filter-item col l-2-4 m-2-4 c-4 tag-for-item" tag="new">
                             <i class="fa-brands fa-angellist"></i>
                             Sản phẩm mới
                         </div>
-                        <div class="filter-item col l-2-4 m-2-4 c-6 active_">
+                        <div class="filter-item col l-2-4 m-2-4 c-6 order-for-item active_" value=1>
                             <i class="fa fa-arrow-up-9-1"></i>
                             Giá thấp tới cao
                         </div>
-                        <div class="filter-item col l-2-4 m-2-4 c-6">
+                        <div class="filter-item col l-2-4 m-2-4 c-6 order-for-item" value=0>
                             <i class="fa fa-arrow-down-9-1"></i>
                             Giá cao tới thấp
                         </div>
@@ -321,537 +267,124 @@
             </div>
             <div class="row">
                 <div class="col l-2 m-0 c-0">
-                    <nav class="tree-nav">
-                        <span class="picked-category"><i class="fa-solid fa-crosshairs"></i>
-                            <h4>Tất cả quần áo</h4>
-                        </span>
-                        <details class="tree-nav__item is-expandable">
-                            <summary class="tree-nav__item-title">Quần áo</summary>
-                            <div class="tree-nav__item">
-                                <a class="tree-nav__item-title active">Tất cả</a>
-                                <a class="tree-nav__item-title">Mũ</a>
-                                <a class="tree-nav__item-title">Giày</a>
-                                <a class="tree-nav__item-title">Áo</a>
-                            </div>
-                            <details class="tree-nav__item is-expandable">
-                                <summary class="tree-nav__item-title">Quần</summary>
-                                <div class="tree-nav__item">
-                                    <a class="tree-nav__item-title">Tất cả quần</a>
-                                    <a class="tree-nav__item-title">Quần jean</a>
-                                    <a class="tree-nav__item-title">Quẩn đùi</a>
-                                </div>
-                            </details>
-                        </details>
-                        <details class="tree-nav__item is-expandable">
-                            <summary class="tree-nav__item-title">Phụ kiện</summary>
-                            <div class="tree-nav__item">
-                                <a class="tree-nav__item-title">Bông tai</a>
-                                <a class="tree-nav__item-title">Lắc</a>
-                                <a class="tree-nav__item-title">Dây chuyền</a>
-                            </div>
-                        </details>
-                        <details class="tree-nav__item is-expandable">
-                            <summary class="tree-nav__item-title">Đồ ăn</summary>
-                            <div class="tree-nav__item">
-                                <a class="tree-nav__item-title">Nhung hươu</a>
-                                <a class="tree-nav__item-title">Đông trùng</a>
-                                <a class="tree-nav__item-title">Yến sào</a>
-                            </div>
-                        </details>
-                    </nav>
+                    <div class="category-main" id="categoryMain">
+                        <font style="color: #186CD8; font-size: 12px;"">Đã chọn:  </font> <span>Tất cả sản phẩm</span></div>
+                    <nav class=" tree-nav" id="category">
+
+                            </nav>
+                    </div>
+                    <div class="col l-10 m-12 c-12">
+                        <div class="row list-item">
+
+                        </div>
+                    </div>
                 </div>
-                <div class="col l-10 m-12 c-12">
-                    <div class="row list-item">
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item" title="Thích sản phẩm">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart" title="Thêm vào giỏ hàng">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
+                <div class="row" style="margin: 10px 0;">
+                    <div class="col l-10 l-o-2 m-12 c-12">
+                        <div class="paging-bar">
+                            <div class="paging-bar-left">
+                                <p id="pagingInfo"> <strong>Trang 1 / 15</strong></p>
                             </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col l-3 m-4 c-6">
-                            <div class="item-item">
-                                <div class="sale-rate">-20%</div>
-                                <img src="https://cf.shopee.vn/file/82658d73a4cfedb88d501f85327560a8_tn" alt="">
-                                <div class="item-title">Ốp điện IP6 nguyễn văn heieus pro vip</div>
-                                <div class="item-price">
-                                    <p class="sale-price">130000 <font>đ</font>
-                                    </p>
-                                    <p class="real-price">150000 <font>đ</font>
-                                    </p>
-                                </div>
-                                <div class="item-footer">
-                                    <div class="like-item">
-                                        <i class="fa-solid fa-heart"></i>
-                                    </div>
-                                    <div class="add-to-cart">
-                                        <i class="fa-solid fa-cart-plus"></i>
-                                    </div>
-                                    <div class="buy-now">
-                                        Mua ngay
-                                    </div>
-                                </div>
+                            <div class="paging-bar-right">
+                                <button class="pre-page">
+                                    <i class="fas fa-chevron-left"></i>
+                                </button>
+                                <button class="next-page">
+                                    <i class="fas fa-chevron-right"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="footer">
-        <div class="grid wide">
-            <div class="row">
-                <div class="col l-3 m-6 c-8 c-o-2">
-                    <div class="footer-block">
-                        <h4 class="footer-title"><b>HỖ TRỢ KHÁCH HÀNG</b></h4>
-                        <a href="" class="footer-item">Trung tâm trợ giúp</a>
-                        <a href="" class="footer-item">An toàn mua bán</a>
-                        <a href="" class="footer-item">Quy định cần biết</a>
-                        <a href="" class="footer-item">Liên hệ hỗ trợ</a>
-                    </div>
-                </div>
-                <div class="col l-3 m-6 c-8 c-o-2">
-                    <div class="footer-block">
-                        <h4 class="footer-title"><b>VỀ DÂU STORE</b></h4>
-                        <a href="" class="footer-item">Giới thiệu</a>
-                        <a href="" class="footer-item">Tuyển dụng</a>
-                        <a href="" class="footer-item">Truyền thông</a>
-                        <a href="" class="footer-item">Blog</a>
-                    </div>
-                </div>
-                <div class="col l-3 m-6 c-8 c-o-2">
-                    <div class="footer-block" id="lienhe">
-                        <h4 class="footer-title"><b>LIÊN HỆ</b> <span
-                                style="font-weight: lighter; font-size: 10px;">(Click vào để liên hệ ngay)</span></h4>
-                        <a href="http://maps.google.com/?q=37 P. Bằng Liệt, Hoàng Liệt, Hoàng Mai, Hà Nội, Vietnam"
-                            target="_blank" class="footer-item"><i class="fa-solid fa-location-dot"></i>37 Bằng
-                            Liệt,Hoàng Mai,Hà
-                            Nội</a>
-                        <a href="mailto:baotram010298@gmail.com" class="footer-item"><i
-                                class="fa-solid fa-envelope"></i>baotram010298@gmail.com</a>
-                        <a href="tel:0974300198" class="footer-item"><i class="fa-solid fa-phone"></i>0974300198</a>
-                        <a href="" class="footer-item"><i class="fa-solid fa-clock"></i>Tất cả ngày giờ trong tuần</a>
-                    </div>
-                </div>
-                <div class="col l-3 m-6 c-8 c-o-2">
-                    <div class="footer-block">
-                        <h4 class="footer-title"><b>KẾT NỐI VỚI CHÚNG TÔI</b></h4>
-                        <div class="row">
-                            <a href="https://www.facebook.com/D%C3%A2u-store-104210735561967" class="footer-item">
-                                <img src="https://static.chotot.com/storage/default/facebook.svg" alt="">
-                            </a>
-                            <a href="" class="footer-item">
-                                <img src="https://static.chotot.com/storage/default/youtube.svg" alt="">
-                            </a>
+        <div class="footer">
+            <div class="grid wide">
+                <div class="row">
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block">
+                            <h4 class="footer-title"><b>HỖ TRỢ KHÁCH HÀNG</b></h4>
+                            <a href="" class="footer-item">Trung tâm trợ giúp</a>
+                            <a href="" class="footer-item">An toàn mua bán</a>
+                            <a href="" class="footer-item">Quy định cần biết</a>
+                            <a href="" class="footer-item">Liên hệ hỗ trợ</a>
                         </div>
-                        <div class="row">
-                            <a href="" class="footer-item"><img src="./assets/image/tiktok-round-color.png" alt=""
-                                    style="transform: scale(1.14);"></a>
-                            <a href="" class="footer-item"><img src="./assets/image/instagram.png" alt=""
-                                    style="transform: scale(1.14);"></a>
+                    </div>
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block">
+                            <h4 class="footer-title"><b>VỀ DÂU STORE</b></h4>
+                            <a href="" class="footer-item">Giới thiệu</a>
+                            <a href="" class="footer-item">Tuyển dụng</a>
+                            <a href="" class="footer-item">Truyền thông</a>
+                            <a href="" class="footer-item">Blog</a>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block" id="lienhe">
+                            <h4 class="footer-title"><b>LIÊN HỆ</b> <span
+                                    style="font-weight: lighter; font-size: 10px;">(Click vào để liên hệ ngay)</span>
+                            </h4>
+                            <a href="http://maps.google.com/?q=37 P. Bằng Liệt, Hoàng Liệt, Hoàng Mai, Hà Nội, Vietnam"
+                                target="_blank" class="footer-item"><i class="fa-solid fa-location-dot"></i>37 Bằng
+                                Liệt,Hoàng Mai,Hà
+                                Nội</a>
+                            <a href="mailto:baotram010298@gmail.com" class="footer-item"><i
+                                    class="fa-solid fa-envelope"></i>baotram010298@gmail.com</a>
+                            <a href="tel:0974300198" class="footer-item"><i class="fa-solid fa-phone"></i>0974300198</a>
+                            <a href="" class="footer-item"><i class="fa-solid fa-clock"></i>Tất cả ngày giờ trong
+                                tuần</a>
+                        </div>
+                    </div>
+                    <div class="col l-3 m-6 c-8 c-o-2">
+                        <div class="footer-block">
+                            <h4 class="footer-title"><b>KẾT NỐI VỚI CHÚNG TÔI</b></h4>
+                            <div class="row">
+                                <a href="https://www.facebook.com/D%C3%A2u-store-104210735561967" class="footer-item">
+                                    <img src="https://static.chotot.com/storage/default/facebook.svg" alt="">
+                                </a>
+                                <a href="" class="footer-item">
+                                    <img src="https://static.chotot.com/storage/default/youtube.svg" alt="">
+                                </a>
+                            </div>
+                            <div class="row">
+                                <a href="" class="footer-item"><img src="./assets/image/tiktok-round-color.png" alt=""
+                                        style="transform: scale(1.14);"></a>
+                                <a href="" class="footer-item"><img src="./assets/image/instagram.png" alt=""
+                                        style="transform: scale(1.14);"></a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="to-top" style="position: fixed; bottom: 10px; right: 10px; cursor: pointer;">
-        <i class="fa-solid fa-angle-up"></i>
-    </div>
+        <div class="data-list">
+        </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
-        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script>
-        setTimeout(() => {
-            alert("Trang web đang trong thời gian hoàn thiện!");
-        }, 3000);
-        //Khi người dùng cuộn chuột thì gọi hàm scrollFunction
-        window.onscroll = function () { scrollFunction() };
-        // khai báo hàm scrollFunction
-        function scrollFunction() {
-            // Kiểm tra vị trí hiện tại của con trỏ so với nội dung trang
-            if (document.body.scrollTop > 1000 || document.documentElement.scrollTop > 1000) {
-                //nếu lớn hơn 20px thì hiện button
-                document.querySelector('.to-top').style.display = "block";
-            } else {
-                //nếu nhỏ hơn 20px thì ẩn button
-                document.querySelector('.to-top').style.display = "none";
-            }
-        }
-        $(".to-top").click(function () {
-            $("html, body").animate({ scrollTop: 0 }, "slow");
-            return false;
-        });
-    </script>
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
+        <div class="toast-messenger" type="success" isShow="hide">
+            <i class="mes-icon fas fa-exclamation-circle"></i>
+            <i class="mes-icon fas fa-check-circle"></i>
+            <div class="mes-text">Thêm mới thành công</div>
+        </div>
 
-    <!-- Your Plugin chat code -->
+        <div class="loader" isShow="hide">
+            <div class="loader-modal"></div>
+            <div class="loader-icon"></div>
+        </div>
+
+        <div class="to-top">
+            <i class="fa-solid fa-angle-up"></i>
+        </div>
+
+        <!-- start facebook chat -->
+        <!-- <div id="fb-root"></div>
     <div id="fb-customer-chat" class="fb-customerchat">
     </div>
-
     <script>
         var chatbox = document.getElementById('fb-customer-chat');
         chatbox.setAttribute("page_id", "104210735561967");
         chatbox.setAttribute("attribution", "biz_inbox");
     </script>
-
-    <!-- Your SDK code -->
     <script>
         window.fbAsyncInit = function () {
             FB.init({
@@ -867,42 +400,14 @@
             js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
-    </script>
-    <script src="./carousel.js"></script>
+    </script> -->
+        <!-- end facebook chat -->
 
-    <script>
-        document.querySelectorAll('.item-item').forEach(item => {
-            item.addEventListener('click', () => {
-                window.location.href = "./page/item.html";
-            })
-        })
-
-        document.querySelectorAll('.like-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.stopImmediatePropagation();
-                alert("like")
-            })
-        })
-
-        document.querySelectorAll('.menu-item.notification').forEach(item => {
-            item.addEventListener('click', () => {
-                document.querySelector('.notification-list').style =
-                    `z-index:112 ;left:${item.getBoundingClientRect().right - 300}px; top:${item.getBoundingClientRect().top + 50}px;`;
-                document.querySelector('.close-notification').style =
-                    `left:${item.getBoundingClientRect().right - 42}px; top:${item.getBoundingClientRect().top + 50}px;`;
-            })
-        })
-
-        document.querySelector('.close-notification').addEventListener('click', () => {
-            document.querySelector('.notification-list').style = 'z-index:-112'
-        })
-
-        // document.querySelectorAll('.menu-item.cart').forEach(item=>{
-        //     item.addEventListener('click',()=>{
-        //         window.location.href = "./page/cart.html"
-        //     })
-        // })
-    </script>
+        <script src="./js/common/carousel.js"></script>
+        <script src="./js/common/common.js"></script>
+        <script src="./js/api/baseApi.js"></script>
+        <script src="./js/page/base.js"></script>
+        <script src="./js/page/home.js"></script>
 </body>
 
 </html>

@@ -103,6 +103,8 @@
     font-size: 13px;
     font-weight: 200;
     padding: 5px;
+    height: 40px;
+    overflow: hidden;
 }
 
 .item-price {

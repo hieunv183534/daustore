@@ -1,0 +1,43 @@
+.paging-bar {
+    width: 100%;
+    height: 56px;
+    float: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #eee;
+}
+
+.paging-bar-left {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.paging-bar-right {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.paging-bar-right>* {
+    margin-left: 12px;
+}
+
+.paging-bar-right .next-page, .pre-page {
+    outline: 0;
+    border: 0;
+    background-color: #fff;
+
+    height: 36px;
+    width: 36px;
+    border-radius: 4px;
+}
+
+.paging-bar-right .pre-page:hover {
+    background: #ccc;
+}
+
+.paging-bar-right .next-page:hover {
+    background: #ccc;
+}

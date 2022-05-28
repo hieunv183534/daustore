@@ -5,7 +5,12 @@ function parseHTML(html) {
     return t.content.firstChild;
 }
 
+function getMediaUrl(fileName) {
+    return `https://firebasestorage.googleapis.com/v0/b/daustore.appspot.com/o/${fileName}.png?alt=media`;
+}
 
+var orderStatus = ['', 'Chờ duyệt', 'Đã xác nhận', 'Đang giao', 'Đã giao', 'Hủy bỏ', 'Hoàn trả'];
+var paymentMethod = ['', 'Tiền mặt', 'Momo', 'Bank', 'VNPay'];
 
 //-------------------combobox-------------------------------------------------------------------------------------------------
 var cbbs = document.querySelectorAll('.combobox .input');
@@ -115,7 +120,6 @@ function loadTable(columns, datas, startIndex) {
     </div>
     </th>`));
     thead.append(parseHTML(`<th style="text-align: right;"><p>STT</p></th>`));
-    console.log(thead);
     columns.forEach(col => {
         var th = parseHTML(`<th style="${col.style}"><p>${col.title}</p></th>`);
         thead.append(th);
@@ -141,17 +145,20 @@ function loadTable(columns, datas, startIndex) {
             } else if (col.format == 'date') {
                 value = formatDate(item[`${col.field}`]);
             } else if (col.format == "listitem") {
-                let listItem = item[`${col.field}`];
+                let listItem = item[`${col.field}`].split(' _and_ ');
                 value = parseHTML('<div class="list-item-order"></div>');
                 listItem.forEach(i => {
                     value.append(parseHTML(`<div class="item-order">
-                                                <img src="${i.imgUrl}" alt="" style="width: 80px;">
-                                                <span> <b>X${i.quantity}</b> ${i.name}</span>
+                                                <img src="${getMediaUrl(i.split('|')[3])}" alt="" style="width: 80px;">
+                                                <span> <b>X${i.split('|')[0]}</b> ${i.split('|')[4]}</span>
                                             </div>`));
                 })
             } else if (col.format == "orderer") {
-                let orderer = item[`${col.field}`];
-                value = `<b>${orderer.name}</b>,<br>${orderer.phone},<br>${orderer.address}`;
+                value = `<b>${item.buyerName}</b>,<br>${item.phone},<br>${item.address}`;
+            } else if (col.format == "status") {
+                value = `<b>${orderStatus[item.status]}</b>`;
+            } else if (col.format == "paymentMethod") {
+                value = `<b>${paymentMethod[item.paymentMethod]}</b>`;
             }
             else {
                 value = item[`${col.field}`];
@@ -269,58 +276,6 @@ function getValueRGB(RbgEle) {
     return value;
 }
 
-function getBoolean(ele) {
-    value = ele.getAttribute('value');
-    datatype = ele.getAttribute('datatype');
-    switch (datatype) {
-        case 'boolean':
-            if (value == 'Có') {
-                value = true;
-            }
-            else if (value == 'Không') {
-                value = false;
-            }
-            break;
-    }
-    return value;
-}
-
-//---------------------------------------------------------------------------------------------------------------------
-//---------------post--------------------------------------------------------------------------------------------------
-function loadListPost(posts) {
-    var postList = document.querySelector(".post-list");
-    postList.innerHTML = "";
-    posts.forEach(post => {
-        var postEle = parseHTML(`<div class="post">
-        <div class="post-header">
-            <div class="left">
-                <p class="poster">${post.posterName}</p>
-                <p class="post-time">${Util.formatDateTime(post.timePost)}</p>
-            </div>
-            <div class="right">
-                <i class="fas fa-map-marker-alt"></i>
-                <div class="post-position">${post.unitDetail}</div>
-            </div>
-            
-        </div>
-        <div class="post-body">
-            <h2 class="post-title">${post.title}</h2>
-            <p class="post-content">${post.notificationContent}</p>
-        </div>
-    </div>`);
-
-        var postFooter = parseHTML(`<div class="post-footer">
-        <button class="button button-primary" id="btnUpdatePost">Chỉnh sửa</button>
-        <button class="button button-secondary" id="btnDeletePost">Xóa</button>
-        <button class="button button-primary" id="btnApprovePost">Duyệt</button>
-        <button class="button button-secondary" id="btnRefusePost">Từ chối</button>
-        </div>`);
-        postFooter.setAttribute('myPost', JSON.stringify(post));
-        postEle.append(postFooter);
-        postList.append(postEle);
-    });
-    hideLoader();
-}
 //---------------------------------------------------------------------------------------------------------------------
 //------------------dropdown-------------------------------------------------------------------------------------------
 var dropdownmains = document.querySelectorAll('.dropdown-main');
@@ -378,6 +333,24 @@ function initEventCheckbox() {
         })
     }
 
+}
+
+function getValueCheckBox(selector) {
+    let checkbox = document.querySelector(selector);
+    if (Number(checkbox.getAttribute('value')) == 1) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+function setValueCheckbox(selector, value) {
+    let checkbox = document.querySelector(selector);
+    if (value) {
+        checkbox.setAttribute("value", 1);
+    } else {
+        checkbox.setAttribute("value", 0);
+    }
 }
 
 //---------------------------------------------------------------------------------------------------------------------
@@ -441,49 +414,3 @@ function formatDate(_date) {
         return '';
     }
 }
-//-----------qr code---------------------------------------------------------------------------------------------------
-
-const cipher = salt => {
-    const textToChars = text => text.split('').map(c => c.charCodeAt(0));
-    const byteHex = n => ("0" + Number(n).toString(16)).substr(-2);
-    const applySaltToChar = code => textToChars(salt).reduce((a, b) => a ^ b, code);
-
-    return text => text.split('')
-        .map(textToChars)
-        .map(applySaltToChar)
-        .map(byteHex)
-        .join('');
-}
-
-if (document.querySelector('.btn-showqr')) {
-    document.querySelector('.btn-showqr').addEventListener('click', () => {
-        var phoneNumber = sessionStorage.getItem('phoneNumber');
-        const myCipher = cipher('mySecretSalt')
-        var phoneEncrypt = myCipher(phoneNumber);
-        console.log(phoneEncrypt);
-        var data = `https://hieunv183534.github.io/covidmanagement/page/qrcode/user-info.html?phoneNumber=${phoneEncrypt}`;
-        showQrCode(data);
-    })
-}
-
-function showUnitQr(unitCode) {
-    var data = `https://hieunv183534.github.io/covidmanagement/page/qrcode/unit-info.html?unitCode=${unitCode}`;
-    showQrCode(data);
-}
-
-function showQrCode(data) {
-    console.log(data);
-    var qr = parseHTML(`<div class="qr">
-                            <div class="qr-modal"></div>
-                            
-                        </div>`);
-    var qrContent = parseHTML(`<div class="qr-content">
-                                    <img src="https://api.qrserver.com/v1/create-qr-code/?data=${data}&size=300x300" alt="">
-                                </div>`);
-    qr.append(qrContent);
-    qr.addEventListener('click', () => {
-        qr.remove();
-    })
-    document.body.appendChild(qr);
-}
-//-------------------------------------------------------------------------------------------------------------------------------

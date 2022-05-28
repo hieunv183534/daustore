@@ -432,7 +432,7 @@
     justify-content: space-between;
 }
 
-.item-cart-name{
+.item-cart-name {
     width: 40%;
 }
 
@@ -444,6 +444,20 @@
 .item-cart-price {
     display: flex;
     width: 25%;
+}
+
+.list-item-pay .item-cart-price {
+    width: 20%;
+}
+
+
+.remove-item-cart {
+    width: 10%;
+    height: 30px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .item-cart-quantity>* {
@@ -462,15 +476,6 @@
 .item-cart-real-price {
     color: #bbb;
     text-decoration: line-through;
-}
-
-.remove-item-cart {
-    width: 10%;
-    height: 30px;
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
 }
 
 .remove-item-cart i {
@@ -539,8 +544,41 @@
     opacity: 0.55;
 }
 
-.pay-progress>*.active {
+.content-step {
+    display: none;
+    padding: 25px;
+}
+
+.payment-content[step="1"] .payment-b1 {
     opacity: 1;
+}
+
+.payment-content[step="2"] .payment-b2 {
+    opacity: 1;
+}
+
+.payment-content[step="3"] .payment-b3 {
+    opacity: 1;
+}
+
+.payment-content[step="4"] .payment-b4 {
+    opacity: 1;
+}
+
+.payment-content[step="1"] .buyer-info {
+    display: flex;
+}
+
+.payment-content[step="2"] .payment-methods {
+    display: flex;
+}
+
+.payment-content[step="3"] .order-info {
+    display: flex;
+}
+
+.payment-content[step="4"] .confirm-order {
+    display: flex;
 }
 
 .input-item input {
@@ -578,9 +616,6 @@
     margin-left: 15px;
 }
 
-.payment-methods {
-    padding: 25px;
-}
 
 .payment-methods-title {
     text-align: center;
@@ -660,13 +695,13 @@
     border-right: 0px;
 }
 
-.login-wrapper input{
+.login-wrapper input {
     border-bottom-left-radius: 0 !important;
     border-top-left-radius: 0 !important;
     border: 1px solid #bbb;
 }
 
-.orther-link{
+.orther-link {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -675,12 +710,12 @@
     width: 280px;
 }
 
-.orther-link a{
+.orther-link a {
     color: #ff7ff7;
     text-decoration: none;
 }
 
-.orther-login{
+.orther-login {
     border-top: 1px solid #bbb;
     width: 400px;
     position: relative;
@@ -688,7 +723,7 @@
     max-width: 76% !important;
 }
 
-.orther-login h3{
+.orther-login h3 {
     position: absolute;
     top: -31px;
     left: 50%;
@@ -696,7 +731,7 @@
     background-color: #fff;
 }
 
-.orther-login span{
+.orther-login span {
     justify-content: space-between;
 }
 
@@ -745,18 +780,18 @@
         flex-direction: column;
     }
 
-    .item-cart-name{
+    .item-cart-name {
         width: 96%;
         height: 30%;
         text-align: center;
     }
 
-    .item-cart-price{
+    .item-cart-price {
         width: 90%;
         justify-content: center;
     }
 
-    .item-cart-quantity{
+    .item-cart-quantity {
         width: 90%;
         justify-content: center;
     }
@@ -775,7 +810,7 @@
         display: none;
     }
 
-    .login-wrapper{
+    .login-wrapper {
         height: auto !important;
         margin-top: 80px;
     }

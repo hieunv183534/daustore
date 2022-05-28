@@ -51,20 +51,19 @@ if (cbbs) {
 
                 if (element.getAttribute('valuetype') !== "w") {
                     showLoader();
-                    // load list unit con cho unit vừa đc chọn
-                    unitApi.getById(element.getAttribute('valueid'), 1, 70, "").then(res => {
-                        console.log(res.data);
-                        res.data.shift();
+                    payPage.API.getUnits(element.getAttribute('valueid')).done(res => {
                         if (element.getAttribute('valuetype') == "p") {
-                            localStorage.setItem("listDistrict", JSON.stringify(res.data));
+                            let listHuyen = res.data.filter(h => h.type == "d");
+                            localStorage.setItem("listDistrict", JSON.stringify(listHuyen));
                             document.querySelector('#valueDistrict input').value = "Chọn quận,huyện";
                             document.querySelector('#valueWard input').value = "Chọn xã,phường";
                         } else if (element.getAttribute('valuetype') == "d") {
-                            localStorage.setItem("listWard", JSON.stringify(res.data));
+                            let listXa = res.data.filter(h => h.type == "w");
+                            localStorage.setItem("listWard", JSON.stringify(listXa));
                             document.querySelector('#valueWard input').value = "Chọn xã,phường";
                         }
                         hideLoader();
-                    }).catch(error => {
+                    }).fail(error => {
                         console.log(error);
                     })
                 }

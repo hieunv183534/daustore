@@ -12,35 +12,13 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="../css/main.css">
     <link rel="stylesheet" href="../css/layout/home.css">
+    <script src="../lib/jquery-3.6.0.min.js"></script>
 </head>
 
 <body>
     <!-- start nav-bar -->
     <input type="checkbox" name="" id="open-menu-status">
     <input type="checkbox" name="" id="open-category-status">
-    <div class="notification-list">
-        <div class="close-notification"><i class="fa fa-times"></i></div>
-        <div class="notification-item active">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer
-            quas ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-        <div class="notification-item">Totam facilisis maecenas, voluptatem metus magni consectetur consectetuer quas
-            ullamcorper beatae corporis litora consectetuer</div>
-    </div>
     <div class="nav-bar">
         <div class="nav-bar-left">
             <div class="logo"></div>
@@ -181,14 +159,15 @@
     <label class="category-overlay" for="open-category-status"></label>
     <!-- end nav-bar -->
     <div class="content">
-        <div class="grid wide payment-content">
+        <div class="grid wide payment-content" step="1">
             <div class="row pay-progress">
-                <div class="col l-3 m-6 c-12 active"><i class="fa-solid fa-1"></i>. ĐỊA CHỈ THANH TOÁN</div>
-                <div class="col l-3 m-6 c-12"><i class="fa-solid fa-2"></i>. PHƯƠNG THỨC THANH TOÁN</div>
-                <div class="col l-3 m-6 c-12"><i class="fa-solid fa-3"></i>. THÔNG TIN ĐƠN HÀNG</div>
-                <div class="col l-3 m-6 c-12"><i class="fa-solid fa-4"></i>. XÁC NHẬN</div>
+                <div class="col l-3 m-6 c-12 payment-b1" to="1"><i class="fa-solid fa-1"></i>. ĐỊA CHỈ THANH TOÁN</div>
+                <div class="col l-3 m-6 c-12 payment-b2" to="2"><i class="fa-solid fa-2"></i>. PHƯƠNG THỨC THANH TOÁN
+                </div>
+                <div class="col l-3 m-6 c-12 payment-b3" to="3"><i class="fa-solid fa-3"></i>. THÔNG TIN ĐƠN HÀNG</div>
+                <div class="col l-3 m-6 c-12 payment-b4" to="4"><i class="fa-solid fa-4"></i>. XÁC NHẬN</div>
             </div>
-            <div class="row buyer-info" >
+            <div class="row content-step buyer-info">
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Họ và tên:</div>
@@ -210,19 +189,28 @@
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Tỉnh/Thành phố:</div>
-                        <input type="text" class="input">
+                        <div id="valueProvince" type="Province" class="combobox">
+                            <input type="text" class="input">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Quận/Huyện:</div>
-                        <input type="text" class="input">
+                        <div id="valueDistrict" type="District" class="combobox">
+                            <input type="text" class="input">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Xã/Phường:</div>
-                        <input type="text" class="input">
+                        <div id="valueWard" type="Ward" class="combobox">
+                            <input type="text" class="input">
+                            <i class="fas fa-angle-down"></i>
+                        </div>
                     </div>
                 </div>
                 <div class="col l-12 m-12 c-12">
@@ -242,34 +230,172 @@
                     </div>
                 </div>
                 <div class="col l-12 m-12 c-12 navigator-payment">
-                    <div class="move-button to-2">
+                    <div class="move-button" to="2">
                         <i class="fa-solid fa-angle-right"></i>
                     </div>
                 </div>
             </div>
-
-            <div class="row payment-methods" style="display: none;">
+            <div class="row content-step payment-methods">
                 <div class="col l-12 m-12 c-12 payment-methods-title">
                     Vui lòng chọn 1 trong các phương thức thanh toán
                 </div>
                 <div class="col l-3 m-6 c-12">
-                    <label for="paymethod1" class="paymethod-item"><img src="https://quehuongshop.vn/assets/images/others/icon_cod.png" alt=""> Thanh toán tiền mặt <input type="checkbox" name="" id="paymethod1"></label>
+                    <label for="paymethod1" class="paymethod-item"><img
+                            src="https://quehuongshop.vn/assets/images/others/icon_cod.png" alt=""> Thanh toán tiền mặt
+                        <input type="radio" name="paymentMethod" id="paymethod1" checked></label>
                 </div>
                 <div class="col l-3 m-6 c-12">
-                    <label for="paymethod2" class="paymethod-item"><img src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png?20201011055544" alt=""> Thanh toán momo<input type="checkbox" name="" id="paymethod2"></label>
+                    <label for="paymethod2" class="paymethod-item"><img
+                            src="https://upload.wikimedia.org/wikipedia/vi/f/fe/MoMo_Logo.png?20201011055544" alt="">
+                        Thanh toán momo<input type="radio" name="paymentMethod" id="paymethod2" disabled></label>
                 </div>
                 <div class="col l-3 m-6 c-12">
-                    <label for="paymethod3" class="paymethod-item"><img src="https://vnpay.vn/_nuxt/img/logo-primary.55e9c8c.svg" alt=""> Thanh toán VNPay<input type="checkbox" name="" id="paymethod3"></label>
+                    <label for="paymethod3" class="paymethod-item"><img
+                            src="https://vnpay.vn/_nuxt/img/logo-primary.55e9c8c.svg" alt=""> Thanh toán VNPay<input
+                            type="radio" name="paymentMethod" id="paymethod3" disabled></label>
                 </div>
                 <div class="col l-3 m-6 c-12">
-                    <label for="paymethod4" class="paymethod-item"><img src="https://image.shutterstock.com/image-photo/image-260nw-399995245.jpg" alt=""> Thanh toán chuyển khoản<input type="checkbox" name="" id="paymethod4"></label>
+                    <label for="paymethod4" class="paymethod-item"><img
+                            src="https://image.shutterstock.com/image-photo/image-260nw-399995245.jpg" alt=""> Thanh
+                        toán chuyển khoản<input type="radio" name="paymentMethod" id="paymethod4" disabled></label>
                 </div>
                 <div class="col l-12 m-12 c-12 navigator-payment">
-                    <div class="move-button return-1">
+                    <div class="move-button" to="1">
                         <i class="fa-solid fa-angle-left"></i>
                     </div>
-                    <div class="move-button to-2">
+                    <div class="move-button" to="3">
                         <i class="fa-solid fa-angle-right"></i>
+                    </div>
+                </div>
+            </div>
+            <div class="row content-step order-info">
+                <div class="col l-12 m-12 c-12 payment-methods-title">
+                    Thông tin đơn hàng
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Họ và tên:</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Số điện thoại:</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Email:</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Tỉnh/Thành phố:</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Quận/Huyện:</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="col l-4 m-6 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Xã/Phường:</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Địa chỉ(số nhà, tên đường):</div>
+                        <input type="text" class="input" disabled>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-item">
+                        <div class="input-title">Ghi chú cho đơn hàng:</div>
+                        <div class="textarea-wrapper">
+                            <textarea disabled></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-title">Danh sách sản phẩm:</div>
+                </div>
+                <div class="col l-12 m-12 c-12 list-item-pay">
+                    <div class="cart-item">
+                        <div class="row">
+                            <div class="col l-2 m-2 c-5">
+                                <img
+                                    src="https://firebasestorage.googleapis.com/v0/b/daustore.appspot.com/o/SP1001_0.png?alt=media">
+                            </div>
+                            <div class="col l-10 m-10 c-7 item-cart-info">
+                                <div class="item-cart-name">Quần áo</div>
+                                <div class="item-cart-price">
+                                    <div class="item-cart-sale-price">Đơn giá:&nbsp;</div>
+                                    <div class="item-cart-sale-price">80.000 đ</div>
+                                </div>
+                                <div class="item-cart-price">
+                                    <div class="item-cart-sale-price">Số lượng:&nbsp;</div>
+                                    <div class="item-cart-sale-price">5</div>
+                                </div>
+                                <div class="item-cart-price">
+                                    <div class="item-cart-sale-price">Thành tiền:&nbsp;</div>
+                                    <div class="item-cart-sale-price">400.000 đ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="cart-item">
+                        <div class="row">
+                            <div class="col l-2 m-2 c-5">
+                                <img
+                                    src="https://firebasestorage.googleapis.com/v0/b/daustore.appspot.com/o/SP1001_0.png?alt=media">
+                            </div>
+                            <div class="col l-10 m-10 c-7 item-cart-info">
+                                <div class="item-cart-name">Quần áo</div>
+                                <div class="item-cart-price">
+                                    <div class="item-cart-sale-price">Đơn giá:&nbsp;</div>
+                                    <div class="item-cart-sale-price">80.000 đ</div>
+                                </div>
+                                <div class="item-cart-price">
+                                    <div class="item-cart-sale-price">Số lượng:&nbsp;</div>
+                                    <div class="item-cart-sale-price">5</div>
+                                </div>
+                                <div class="item-cart-price">
+                                    <div class="item-cart-sale-price">Thành tiền:&nbsp;</div>
+                                    <div class="item-cart-sale-price">400.000 đ</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col l-12 m-12 c-12">
+                    <div class="input-title">Tổng tiền đơn hàng (chưa bào gồm tiền ship/vận chuyển):&nbsp;<strong
+                            style="font-size: 22px;">1.002.000 đ</strong></div>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button" to="2">
+                        <i class="fa-solid fa-angle-left"></i>
+                    </div>
+                    <button class="button button-primary" style="height: 45px;"> <b>Xác nhận đặt hàng</b> </button>
+                </div>
+            </div>
+            <div class="row content-step confirm-order">
+                <div class="col l-12 m-12 c-12 payment-methods-title">
+                    Đặt hàng thành công
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <label for="paymethod1" class="paymethod-item"><img
+                            src="https://quehuongshop.vn/assets/images/others/icon_cod.png" alt=""> Thanh toán tiền mặt
+                        <input type="checkbox" name="" id="paymethod1"></label>
+                </div>
+                <div class="col l-12 m-12 c-12 navigator-payment">
+                    <div class="move-button" to="3">
+                        <i class="fa-solid fa-angle-left"></i>
                     </div>
                 </div>
             </div>
@@ -332,65 +458,57 @@
             </div>
         </div>
     </div>
-    <!-- Messenger Plugin chat Code -->
-    <div id="fb-root"></div>
 
-    <!-- Your Plugin chat code -->
-    <div id="fb-customer-chat" class="fb-customerchat">
+    <div class="data-list">
     </div>
 
-    <script>
-        var chatbox = document.getElementById('fb-customer-chat');
-        chatbox.setAttribute("page_id", "104210735561967");
-        chatbox.setAttribute("attribution", "biz_inbox");
-    </script>
+    <div class="toast-messenger" type="success" isShow="hide">
+        <i class="mes-icon fas fa-exclamation-circle"></i>
+        <i class="mes-icon fas fa-check-circle"></i>
+        <div class="mes-text">Thêm mới thành công</div>
+    </div>
 
-    <!-- Your SDK code -->
-    <script>
-        window.fbAsyncInit = function () {
-            FB.init({
-                xfbml: true,
-                version: 'v13.0'
-            });
-        };
+    <div class="loader" isShow="hide">
+        <div class="loader-modal"></div>
+        <div class="loader-icon"></div>
+    </div>
 
-        (function (d, s, id) {
-            var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) return;
-            js = d.createElement(s); js.id = id;
-            js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
-            fjs.parentNode.insertBefore(js, fjs);
-        }(document, 'script', 'facebook-jssdk'));
-    </script>
+    <div class="to-top">
+        <i class="fa-solid fa-angle-up"></i>
+    </div>
 
-    <script>
-        document.querySelectorAll('.item-item').forEach(item => {
-            item.addEventListener('click', () => {
-                window.location.href = "./page/item.html";
-            })
-        })
+    <!-- start facebook chat -->
+    <!-- <div id="fb-root"></div>
+<div id="fb-customer-chat" class="fb-customerchat">
+</div>
+<script>
+    var chatbox = document.getElementById('fb-customer-chat');
+    chatbox.setAttribute("page_id", "104210735561967");
+    chatbox.setAttribute("attribution", "biz_inbox");
+</script>
+<script>
+    window.fbAsyncInit = function () {
+        FB.init({
+            xfbml: true,
+            version: 'v13.0'
+        });
+    };
 
-        document.querySelectorAll('.like-item').forEach(item => {
-            item.addEventListener('click', (e) => {
-                e.stopImmediatePropagation();
-                alert("like")
-            })
-        })
+    (function (d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = 'https://connect.facebook.net/vi_VN/sdk/xfbml.customerchat.js';
+        fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+</script> -->
+    <!-- end facebook chat -->
 
-        document.querySelectorAll('.menu-item.notification').forEach(item => {
-            item.addEventListener('click', () => {
-                document.querySelector('.notification-list').style =
-                    `z-index:112 ;left:${item.getBoundingClientRect().right - 300}px; top:${item.getBoundingClientRect().top + 50}px;`;
-                document.querySelector('.close-notification').style =
-                    `left:${item.getBoundingClientRect().right - 42}px; top:${item.getBoundingClientRect().top + 50}px;`;
-            })
-        })
+    <script src="../js/common/common.js"></script>
+    <script src="../js/api/baseApi.js"></script>
+    <script src="../js/page/base.js"></script>
+    <script src="../js/page/pay.js"></script>
 
-        document.querySelector('.close-notification').addEventListener('click', () => {
-            document.querySelector('.notification-list').style = 'z-index:-112'
-        })
-
-    </script>
 </body>
 
 </html>

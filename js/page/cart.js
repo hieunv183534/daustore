@@ -34,15 +34,20 @@ class CartPage extends Base {
             let cartItem = this.cart[i];
             let item = {};
             await this.API.getItemById(cartItem.itemId).done(res => {
-                item = res.data;
-                console.log(res);
-                this.cart[i].realPrice = item.realPrice;
-                this.cart[i].saleRate = item.saleRate;
-                this.cart[i].itemName = item.itemName;
-                this.cart[i].avatar = item.medias.split(' ')[0];
+                if (res.data) {
+                    item = res.data;
+                    this.cart[i].realPrice = item.realPrice;
+                    this.cart[i].saleRate = item.saleRate;
+                    this.cart[i].itemName = item.itemName;
+                    this.cart[i].avatar = item.medias.split(' ')[0];
+                } else {
+                    item = null;
+                }
             }).fail(err => {
                 showToastMessenger('danger', "Có lỗi!");
-            })
+            });
+
+            if(!item) continue;
             let cartItemRow = parseHTML(`<div class="cart-item" data="${cartItem.itemId}">
                                             <div class="row">
                                                 <div class="col l-2 m-2 c-5">

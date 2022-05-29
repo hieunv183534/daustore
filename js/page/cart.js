@@ -35,6 +35,7 @@ class CartPage extends Base {
             let item = {};
             await this.API.getItemById(cartItem.itemId).done(res => {
                 item = res.data;
+                console.log(res);
                 this.cart[i].realPrice = item.realPrice;
                 this.cart[i].saleRate = item.saleRate;
                 this.cart[i].itemName = item.itemName;

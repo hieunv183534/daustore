@@ -29,7 +29,7 @@ class PayPage extends Base {
             note: ''
         };
         this.items = [],
-        this.initEvent();
+            this.initEvent();
         this.loadListItemPay();
     }
 
@@ -52,13 +52,15 @@ class PayPage extends Base {
             });
         });
 
-        document.querySelector('#btnPayOrder').addEventListener('click',()=>{
-            this.API.addOrder(this.orderForm).done(res=>{
-                showToastMessenger('success',"Đặt hàng thành công!");
+        document.querySelector('#btnPayOrder').addEventListener('click', () => {
+            this.API.addOrder(this.orderForm).done(res => {
+                showToastMessenger('success', "Đặt hàng thành công!");
                 console.log(res.data);
-            }).fail(error=>{
+                document.querySelector('#valueOrderCode').innerHTML = res.data.orderCode;
+                document.querySelector('.payment-content').setAttribute('step', '4');
+            }).fail(error => {
                 console.log(error);
-                showToastMessenger('danger',"Đặt hàng không thành công!")
+                showToastMessenger('danger', "Đặt hàng không thành công!")
             });
         });
     }
@@ -107,8 +109,8 @@ class PayPage extends Base {
         document.querySelector('#infoNote').value = document.querySelector('#valueNote').value;
 
         payPage.orderForm = {
-            buyerName : document.querySelector('#valueBuyerName').value,
-            phone:document.querySelector('#valuePhone').value ,
+            buyerName: document.querySelector('#valueBuyerName').value,
+            phone: document.querySelector('#valuePhone').value,
             unitCode: document.querySelector('#valueWard').getAttribute('value'),
             address: document.querySelector('#valueAddress').value,
             items: payPage.getValueItemsFromCart(),
@@ -117,9 +119,9 @@ class PayPage extends Base {
         console.log(payPage.orderForm);
     }
 
-    getValueItemsFromCart(){
+    getValueItemsFromCart() {
         let itemsArr = [];
-        this.items.forEach(item=>{
+        this.items.forEach(item => {
             itemsArr.push(`${item.quantity}|${item.itemId}`);
         });
         return itemsArr.join(' _and_ ');

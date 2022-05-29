@@ -16,7 +16,7 @@ class CartPage extends Base {
 
     initEvent() {
         document.querySelector('.buy-continue').addEventListener('click', () => {
-            window.location.href =`../index.html`;
+            window.location.href = `../index.html`;
         });
     }
 
@@ -37,6 +37,8 @@ class CartPage extends Base {
                 item = res.data;
                 this.cart[i].realPrice = item.realPrice;
                 this.cart[i].saleRate = item.saleRate;
+                this.cart[i].itemName = item.itemName;
+                this.cart[i].avatar = item.medias.split(' ')[0];
             }).fail(err => {
                 showToastMessenger('danger', "Có lỗi!");
             })
@@ -113,6 +115,8 @@ class CartPage extends Base {
             totalSale += cartItem.quantity * this.calculateSalePrice(cartItem);
             totalReal += cartItem.quantity * cartItem.realPrice;
         });
+
+        localStorage.setItem('totalMoney', totalSale);
 
         document.querySelector('.total-sale-price span').innerHTML = "&nbsp;" + totalSale + "&nbsp;";
         document.querySelector('.total-save-money span').innerHTML = "&nbsp;" + (totalReal - totalSale) + "&nbsp;";

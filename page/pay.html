@@ -171,26 +171,26 @@
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Họ và tên:</div>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="valueBuyerName">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Số điện thoại:</div>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="valuePhone">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Email:</div>
-                        <input type="text" class="input">
+                        <input type="text" class="input" id="valueEmail">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Tỉnh/Thành phố:</div>
                         <div id="valueProvince" type="Province" class="combobox">
-                            <input type="text" class="input">
+                            <input type="text" class="input" id="valueProvinceName">
                             <i class="fas fa-angle-down"></i>
                         </div>
                     </div>
@@ -199,7 +199,7 @@
                     <div class="input-item">
                         <div class="input-title">Quận/Huyện:</div>
                         <div id="valueDistrict" type="District" class="combobox">
-                            <input type="text" class="input">
+                            <input type="text" class="input" id="valueDistrictName">
                             <i class="fas fa-angle-down"></i>
                         </div>
                     </div>
@@ -208,7 +208,7 @@
                     <div class="input-item">
                         <div class="input-title">Xã/Phường:</div>
                         <div id="valueWard" type="Ward" class="combobox">
-                            <input type="text" class="input">
+                            <input type="text" class="input" id="valueWardName">
                             <i class="fas fa-angle-down"></i>
                         </div>
                     </div>
@@ -217,7 +217,7 @@
                     <div class="input-item">
                         <div class="input-title">Địa chỉ(số nhà, tên đường):</div>
                         <div class="textarea-wrapper">
-                            <textarea></textarea>
+                            <textarea id="valueAddress"></textarea>
                         </div>
                     </div>
                 </div>
@@ -225,12 +225,12 @@
                     <div class="input-item">
                         <div class="input-title">Ghi chú cho đơn hàng:</div>
                         <div class="textarea-wrapper">
-                            <textarea></textarea>
+                            <textarea id="valueNote"></textarea>
                         </div>
                     </div>
                 </div>
                 <div class="col l-12 m-12 c-12 navigator-payment">
-                    <div class="move-button" to="2">
+                    <div class="move-button" to="2" id="btnSubmitInfoForm">
                         <i class="fa-solid fa-angle-right"></i>
                     </div>
                 </div>
@@ -275,50 +275,50 @@
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Họ và tên:</div>
-                        <input type="text" class="input" disabled>
+                        <input type="text" class="input" disabled id="infoBuyerName">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Số điện thoại:</div>
-                        <input type="text" class="input" disabled>
+                        <input type="text" class="input" disabled id="infoPhone">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Email:</div>
-                        <input type="text" class="input" disabled>
+                        <input type="text" class="input" disabled id="infoEmail">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Tỉnh/Thành phố:</div>
-                        <input type="text" class="input" disabled>
+                        <input type="text" class="input" disabled id="infoProvince">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Quận/Huyện:</div>
-                        <input type="text" class="input" disabled>
+                        <input type="text" class="input" disabled id="infoDistrict">
                     </div>
                 </div>
                 <div class="col l-4 m-6 c-12">
                     <div class="input-item">
                         <div class="input-title">Xã/Phường:</div>
-                        <input type="text" class="input" disabled>
+                        <input type="text" class="input" disabled id="infoWard">
                     </div>
                 </div>
                 <div class="col l-12 m-12 c-12">
                     <div class="input-item">
                         <div class="input-title">Địa chỉ(số nhà, tên đường):</div>
-                        <input type="text" class="input" disabled>
+                        <input type="text" class="input" disabled id="infoAddress">
                     </div>
                 </div>
                 <div class="col l-12 m-12 c-12">
                     <div class="input-item">
                         <div class="input-title">Ghi chú cho đơn hàng:</div>
                         <div class="textarea-wrapper">
-                            <textarea disabled></textarea>
+                            <textarea disabled id="infoNote"></textarea>
                         </div>
                     </div>
                 </div>
@@ -326,62 +326,18 @@
                     <div class="input-title">Danh sách sản phẩm:</div>
                 </div>
                 <div class="col l-12 m-12 c-12 list-item-pay">
-                    <div class="cart-item">
-                        <div class="row">
-                            <div class="col l-2 m-2 c-5">
-                                <img
-                                    src="https://firebasestorage.googleapis.com/v0/b/daustore.appspot.com/o/SP1001_0.png?alt=media">
-                            </div>
-                            <div class="col l-10 m-10 c-7 item-cart-info">
-                                <div class="item-cart-name">Quần áo</div>
-                                <div class="item-cart-price">
-                                    <div class="item-cart-sale-price">Đơn giá:&nbsp;</div>
-                                    <div class="item-cart-sale-price">80.000 đ</div>
-                                </div>
-                                <div class="item-cart-price">
-                                    <div class="item-cart-sale-price">Số lượng:&nbsp;</div>
-                                    <div class="item-cart-sale-price">5</div>
-                                </div>
-                                <div class="item-cart-price">
-                                    <div class="item-cart-sale-price">Thành tiền:&nbsp;</div>
-                                    <div class="item-cart-sale-price">400.000 đ</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="cart-item">
-                        <div class="row">
-                            <div class="col l-2 m-2 c-5">
-                                <img
-                                    src="https://firebasestorage.googleapis.com/v0/b/daustore.appspot.com/o/SP1001_0.png?alt=media">
-                            </div>
-                            <div class="col l-10 m-10 c-7 item-cart-info">
-                                <div class="item-cart-name">Quần áo</div>
-                                <div class="item-cart-price">
-                                    <div class="item-cart-sale-price">Đơn giá:&nbsp;</div>
-                                    <div class="item-cart-sale-price">80.000 đ</div>
-                                </div>
-                                <div class="item-cart-price">
-                                    <div class="item-cart-sale-price">Số lượng:&nbsp;</div>
-                                    <div class="item-cart-sale-price">5</div>
-                                </div>
-                                <div class="item-cart-price">
-                                    <div class="item-cart-sale-price">Thành tiền:&nbsp;</div>
-                                    <div class="item-cart-sale-price">400.000 đ</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    
+                   
                 </div>
                 <div class="col l-12 m-12 c-12">
-                    <div class="input-title">Tổng tiền đơn hàng (chưa bào gồm tiền ship/vận chuyển):&nbsp;<strong
+                    <div class="input-title">Tổng tiền đơn hàng (chưa bào gồm tiền ship/vận chuyển):&nbsp;<strong id="totalMoneyPay"
                             style="font-size: 22px;">1.002.000 đ</strong></div>
                 </div>
                 <div class="col l-12 m-12 c-12 navigator-payment">
                     <div class="move-button" to="2">
                         <i class="fa-solid fa-angle-left"></i>
                     </div>
-                    <button class="button button-primary" style="height: 45px;"> <b>Xác nhận đặt hàng</b> </button>
+                    <button class="button button-primary" style="height: 45px;" id="btnPayOrder"> <b>Xác nhận đặt hàng</b> </button>
                 </div>
             </div>
             <div class="row content-step confirm-order">
@@ -505,6 +461,7 @@
     <!-- end facebook chat -->
 
     <script src="../js/common/common.js"></script>
+    <script src="../js/common/validator.js"></script>
     <script src="../js/api/baseApi.js"></script>
     <script src="../js/page/base.js"></script>
     <script src="../js/page/pay.js"></script>

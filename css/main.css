@@ -95,3 +95,15 @@ button {
     justify-content: center;
     color: #F1F1F1;
 }
+
+input.validate-field{
+    border: 1px solid red !important;
+}
+
+textarea.validate-field{
+    border: 1px solid red !important;
+}
+
+.combobox.validate-field input{
+    border: 1px solid red !important;
+}

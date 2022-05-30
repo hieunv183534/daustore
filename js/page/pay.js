@@ -111,6 +111,7 @@ class PayPage extends Base {
         payPage.orderForm = {
             buyerName: document.querySelector('#valueBuyerName').value,
             phone: document.querySelector('#valuePhone').value,
+            email: document.querySelector('#valueEmail').value,
             unitCode: document.querySelector('#valueWard').getAttribute('value'),
             address: document.querySelector('#valueAddress').value,
             items: payPage.getValueItemsFromCart(),

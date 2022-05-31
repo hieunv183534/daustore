@@ -18,13 +18,16 @@ class HomePage extends Base {
         this.initEvent();
         this.loadCategory();
         this.loadListProvince();
+
+
+        localStorage.setItem('cart', JSON.stringify([]));
     }
 
     loadListProvince() {
         this.API.getUnits('|').done(res => {
-            localStorage.setItem('listProvince',JSON.stringify(res.data));
+            localStorage.setItem('listProvince', JSON.stringify(res.data));
         }).fail(error => {
-            showToastMessenger('danger',"Đã có lỗi trong lúc load danh sách tỉnh!");
+            showToastMessenger('danger', "Đã có lỗi trong lúc load danh sách tỉnh!");
         })
     }
 

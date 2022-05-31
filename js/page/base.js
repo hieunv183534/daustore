@@ -200,7 +200,7 @@ class Base {
 
             itemElement.querySelector('.add-to-cart').addEventListener('click', (e) => {
                 e.stopImmediatePropagation();
-                let cartJSON = localStorage.getItem('cart');
+                let cartJSON = sessionStorage.getItem('cart');
                 let cart = [];
                 if (cartJSON) {
                     cart = JSON.parse(cartJSON);
@@ -211,7 +211,7 @@ class Base {
                 } else {
                     cart.push({ itemId : itemData.itemId, quantity: 1 });
                 }
-                localStorage.setItem('cart', JSON.stringify(cart));
+                sessionStorage.setItem('cart', JSON.stringify(cart));
                 showToastMessenger('success', `Thêm thành công 1 ${itemData.itemName} vào giỏ hàng!`)
             });
 

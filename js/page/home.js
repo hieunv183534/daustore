@@ -18,9 +18,6 @@ class HomePage extends Base {
         this.initEvent();
         this.loadCategory();
         this.loadListProvince();
-
-
-        localStorage.setItem('cart', JSON.stringify([]));
     }
 
     loadListProvince() {

@@ -8,7 +8,7 @@ window.onload = () => {
 class CartPage extends Base {
     constructor() {
         super();
-        this.cart = JSON.parse(localStorage.getItem('cart'));
+        this.cart = JSON.parse(sessionStorage.getItem('cart'));
         this.totalMoney = 0;
         this.initEvent();
         this.loadCart();
@@ -71,7 +71,7 @@ class CartPage extends Base {
             listCartItem.append(cartItemRow);
         }
         this.calculateTotalMoney();
-        localStorage.setItem('cart', JSON.stringify(this.cart));
+        sessionStorage.setItem('cart', JSON.stringify(this.cart));
         this.initEVentListItemCart();
     }
 
@@ -80,7 +80,7 @@ class CartPage extends Base {
             let itemId = cartItemElement.getAttribute('data');
             cartItemElement.querySelector('.fa-trash-can').addEventListener('click', () => {
                 this.cart = this.cart.filter(i => i.itemId !== itemId);
-                localStorage.setItem('cart', JSON.stringify(this.cart));
+                sessionStorage.setItem('cart', JSON.stringify(this.cart));
                 cartItemElement.remove();
                 this.calculateTotalMoney();
             });
@@ -88,7 +88,7 @@ class CartPage extends Base {
             cartItemElement.querySelector('input').addEventListener('change', (e) => {
                 let itemChanged = this.cart.find(i => i.itemId === itemId);
                 itemChanged.quantity = Number(e.target.value);
-                localStorage.setItem('cart', JSON.stringify(this.cart));
+                sessionStorage.setItem('cart', JSON.stringify(this.cart));
                 this.calculateTotalMoney();
             });
 
@@ -98,7 +98,7 @@ class CartPage extends Base {
                     cartItemElement.querySelector('input').value = newVal;
                     let itemChanged = this.cart.find(i => i.itemId === itemId);
                     itemChanged.quantity = newVal;
-                    localStorage.setItem('cart', JSON.stringify(this.cart));
+                    sessionStorage.setItem('cart', JSON.stringify(this.cart));
                     this.calculateTotalMoney();
                 }
             });
@@ -108,7 +108,7 @@ class CartPage extends Base {
                 cartItemElement.querySelector('input').value = newVal;
                 let itemChanged = this.cart.find(i => i.itemId === itemId);
                 itemChanged.quantity = newVal;
-                localStorage.setItem('cart', JSON.stringify(this.cart));
+                sessionStorage.setItem('cart', JSON.stringify(this.cart));
                 this.calculateTotalMoney();
             });
         });
@@ -122,7 +122,7 @@ class CartPage extends Base {
             totalReal += cartItem.quantity * cartItem.realPrice;
         });
 
-        localStorage.setItem('totalMoney', totalSale);
+        sessionStorage.setItem('totalMoney', totalSale);
 
         document.querySelector('.total-sale-price span').innerHTML = "&nbsp;" + totalSale + "&nbsp;";
         document.querySelector('.total-save-money span').innerHTML = "&nbsp;" + (totalReal - totalSale) + "&nbsp;";

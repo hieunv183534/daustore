@@ -67,7 +67,7 @@ class PayPage extends Base {
 
     loadListItemPay() {
         listItemPay.innerHTML = '';
-        this.items = JSON.parse(localStorage.getItem('cart'));
+        this.items = JSON.parse(sessionStorage.getItem('cart'));
         this.items.forEach(item => {
             let itemPayElement = parseHTML(`<div class="cart-item">
                                                 <div class="row">
@@ -94,7 +94,7 @@ class PayPage extends Base {
             listItemPay.append(itemPayElement);
         });
 
-        document.querySelector('#totalMoneyPay').innerHTML = `${localStorage.getItem('totalMoney')} VNĐ`;
+        document.querySelector('#totalMoneyPay').innerHTML = `${sessionStorage.getItem('totalMoney')} VNĐ`;
     }
 
     formBuyerInfoOnSubmit() {

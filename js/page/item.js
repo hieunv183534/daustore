@@ -32,12 +32,45 @@ class ItemPage extends Base {
                 this.loadListItem();
             })
         });
+
+        document.querySelector('.down-quantity').addEventListener('click', () => {
+            if (this.itemForm.quantity > 1) {
+                this.itemForm.quantity--;
+                document.querySelector('.input-quantity').value = this.itemForm.quantity;
+            }
+        });
+
+        document.querySelector('.up-quantity').addEventListener('click', () => {
+            this.itemForm.quantity++;
+            document.querySelector('.input-quantity').value = this.itemForm.quantity;
+        });
+
+        document.querySelector('.input-quantity').addEventListener('input', () => {
+            this.itemForm.quantity = Number(document.querySelector('.input-quantity').value);
+        });
+
+        document.querySelector('.main-add-to-cart').addEventListener('click', (e) => {
+            let cartJSON = sessionStorage.getItem('cart');
+            let cart = [];
+            if (cartJSON) {
+                cart = JSON.parse(cartJSON);
+            }
+            let sameItem = cart.find(i => i.itemId === this.itemForm.itemId);
+            if (sameItem) {
+                sameItem.quantity = this.itemForm.quantity;
+            } else {
+                cart.push({ itemId: this.itemForm.itemId, quantity: this.itemForm.quantity });
+            }
+            sessionStorage.setItem('cart', JSON.stringify(cart));
+            showToastMessenger('success', `Thêm thành công vào giỏ hàng!`)
+        });
     }
 
     loadItem(itemId) {
         this.API.getItemById(itemId).done(res => {
             console.log(res.data);
             this.itemForm = res.data;
+            this.itemForm.quantity = 1;
             document.querySelector('.main-item-name').innerHTML = res.data.itemName;
             document.querySelector('.main-item-code').innerHTML = res.data.itemCode;
             document.querySelector('.main-sale-price').innerHTML = this.calculateSalePrice(res.data) + ' đ';
@@ -61,7 +94,6 @@ class ItemPage extends Base {
                                     </li>`);
                 listInfo.append(li);
             }
-
         }).fail(err => {
             console.log(err);
             showToastMessenger('danger', "Đã có lỗi xảy ra. Vui lòng tải lại trang!")

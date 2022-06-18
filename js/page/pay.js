@@ -28,8 +28,27 @@ class PayPage extends Base {
             items: '',
             note: ''
         };
-        this.items = [],
+        this.items = [];
+
+        /**
+         * mode = 1: đơn đặt hàng từ giỏ hàng
+         * mode = 2: đơn đặt hàng ngay. chỉ có 1 sản phẩm
+         * mode = 3: xem thông tin đơn hàng có sẵn
+         */
+        this.url = new URL(window.location.href);
+        var _mode = this.url.searchParams.get("mode");
+        if (!_mode) {
+            this.mode = 1;
+        } else {
+            this.mode = Number(_mode);
+        }
+
+        if (this.mode !== 3) {
             this.initEvent();
+        } else {
+            this.bindOrderToPage();
+        }
+
         this.loadListItemPay();
     }
 
@@ -65,9 +84,12 @@ class PayPage extends Base {
         });
     }
 
+    bindOrderToPage(){
+        
+    }
+
     loadListItemPay() {
         listItemPay.innerHTML = '';
-        this.items = JSON.parse(sessionStorage.getItem('cart'));
         this.items.forEach(item => {
             let itemPayElement = parseHTML(`<div class="cart-item">
                                                 <div class="row">

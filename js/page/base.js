@@ -218,6 +218,7 @@ class Base {
             itemElement.querySelector('.buy-now').addEventListener('click', (e) => {
                 e.stopImmediatePropagation();
                 alert("Mua ngay " + itemData.itemName);
+                window.location.href = `./page/pay.html?mode=2&itemId=${itemData.itemId}&quantity=${1}`;
             });
         })
     }

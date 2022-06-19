@@ -84,12 +84,38 @@ class PayPage extends Base {
         });
     }
 
-    bindOrderToPage(){
-        
-    }
+    // bindOrderToPage(){
+    //     let orderId = 
+    // }
 
-    loadListItemPay() {
+    async loadListItemPay() {
         listItemPay.innerHTML = '';
+        // lấy và hiển thị lên danh sách item trong từng trường hợp
+        switch (this.mode) {
+            case 1:
+                this.items = JSON.parse(sessionStorage.getItem('cart'));
+                document.querySelector('#totalMoneyPay').innerHTML = `${sessionStorage.getItem('totalMoney')} VNĐ`;
+                break;
+            case 2:
+                let _itemId = this.url.searchParams.get("itemId");
+                let _quantity = Number(this.url.searchParams.get("quantity"));
+                await this.API.getItemById(_itemId).done(res => {
+                    console.log(res);
+                    this.items.push({
+                        avatar: res.data.medias.split(' ')[0],
+                        itemName: res.data.itemName,
+                        realPrice: res.data.realPrice,
+                        saleRate: res.data.saleRate,
+                        quantity: _quantity
+                    });
+                    document.querySelector('#totalMoneyPay').innerHTML = `${this.calculateSalePrice(res.data) * _quantity} VNĐ`;
+                });
+                break;
+            case 3:
+                break;
+            default:
+                break;
+        }
         this.items.forEach(item => {
             let itemPayElement = parseHTML(`<div class="cart-item">
                                                 <div class="row">
@@ -115,8 +141,6 @@ class PayPage extends Base {
                                             </div>`);
             listItemPay.append(itemPayElement);
         });
-
-        document.querySelector('#totalMoneyPay').innerHTML = `${sessionStorage.getItem('totalMoney')} VNĐ`;
     }
 
     formBuyerInfoOnSubmit() {

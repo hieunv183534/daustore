@@ -438,7 +438,7 @@
     font-weight: bold;
 }
 
-.item-cart-quantity {
+.list-cart-item .item-cart-quantity {
     display: flex;
     width: 25%;
 }

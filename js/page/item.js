@@ -15,6 +15,8 @@ class ItemPage extends Base {
     }
 
     initEvent() {
+        document.querySelector('.input-quantity').value = 1;
+
         document.querySelectorAll('.tag-for-item').forEach(tagElement => {
             tagElement.addEventListener('click', () => {
                 document.querySelectorAll('.tag-for-item').forEach(e => e.classList.remove('active'));
@@ -64,7 +66,11 @@ class ItemPage extends Base {
             sessionStorage.setItem('cart', JSON.stringify(cart));
             showToastMessenger('success', `Thêm thành công vào giỏ hàng!`)
         });
+        document.querySelector('.main-buy-now').addEventListener('click',()=>{
+            window.location.href = `./pay.html?mode=2&itemId=${this.itemForm.itemId}&quantity=${this.itemForm.quantity}`;
+        })
     }
+    
 
     loadItem(itemId) {
         this.API.getItemById(itemId).done(res => {

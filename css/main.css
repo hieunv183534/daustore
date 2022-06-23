@@ -11,6 +11,7 @@
 @import url('base/checkbox.css');
 @import url('base/paging.css');
 @import url('base/combobox.css');
+@import url('base/box-quantity.css');
 
 @font-face {
     font-family: 'NotosansBold';

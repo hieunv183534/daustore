@@ -22,7 +22,7 @@ class CartPage extends Base {
 
     async loadCart() {
         listCartItem.innerHTML = '';
-        if (!this.cart.length) {
+        if ((this.cart == null || this.cart.length == 0)) {
             listCartItem.append(parseHTML(`<div style="background-color: #F8DFF6; width: 100%; 
                                             height: 100px; display: flex; align-items: center; 
                                             justify-content: center; font-size: 18px;">
@@ -47,7 +47,7 @@ class CartPage extends Base {
                 showToastMessenger('danger', "Có lỗi!");
             });
 
-            if(!item) continue;
+            if (!item) continue;
             let cartItemRow = parseHTML(`<div class="cart-item" data="${cartItem.itemId}">
                                             <div class="row">
                                                 <div class="col l-2 m-2 c-5">

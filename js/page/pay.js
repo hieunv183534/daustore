@@ -26,9 +26,12 @@ class PayPage extends Base {
             unitCode: '',
             address: '',
             items: '',
-            note: ''
+            note: '',
+            voucherId: ''
         };
         this.items = [];
+        this.totalMoney = 0;
+        this.totalMoneyAfterVoucher = 0;
 
         /**
          * mode = 1: đơn đặt hàng từ giỏ hàng
@@ -82,6 +85,53 @@ class PayPage extends Base {
                 showToastMessenger('danger', "Đặt hàng không thành công!")
             });
         });
+
+        document.querySelector('#btnVoucher').addEventListener('click', () => {
+            let voucherCode = document.querySelector('#infoVoucherCode').value;
+            this.API.getVoucherByCode(voucherCode).done(res => {
+                let voucher = res.data;
+                console.log(voucher);
+                if (!voucher) {
+                    showToastMessenger('danger', "Mã khuyến mãi không đúng");
+                    document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
+                    document.querySelector('#infoVoucherDetail').value = '';
+                    document.querySelector('#infoVoucherDetail').setAttribute('title', '');
+                    this.orderForm.voucherId = null;
+                } else if (Number(new Date()) > Number(new Date(voucher.dateExpired))) {
+                    showToastMessenger('danger', "Mã khuyến mãi hết hạn");
+                    document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
+                    document.querySelector('#infoVoucherDetail').value = '';
+                    document.querySelector('#infoVoucherDetail').setAttribute('title', '');
+                    this.orderForm.voucherId = null;
+                } else if (voucher.quota < 1) {
+                    showToastMessenger('danger', "Mã khuyến mãi hết số lượng");
+                    document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
+                    document.querySelector('#infoVoucherDetail').value = '';
+                    document.querySelector('#infoVoucherDetail').setAttribute('title', '');
+                    this.orderForm.voucherId = null;
+                } else if (voucher.minTotal > this.totalMoney) {
+                    showToastMessenger('danger', "Giá trị đơn hàng chưa đủ để áp dụng voucher này");
+                    document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
+                    document.querySelector('#infoVoucherDetail').value = '';
+                    document.querySelector('#infoVoucherDetail').setAttribute('title', '');
+                    this.orderForm.voucherId = null;
+                } else {
+                    document.querySelector('#infoVoucherDetail').value = voucher.description;
+                    document.querySelector('#infoVoucherDetail').setAttribute('title', voucher.description);
+                    if (!voucher.saleRate) {
+                        this.totalMoneyAfterVoucher = this.totalMoney - voucher.saleNumber;
+                    } else {
+                        let sale = (voucher.saleRate * this.totalMoney) > voucher.maxNumber ? voucher.maxNumber : (voucher.saleRate * this.totalMoney);
+                        this.totalMoneyAfterVoucher = this.totalMoney - sale;
+                    }
+                    document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoneyAfterVoucher} VNĐ`;
+                    showToastMessenger('success', "Áp dụng mã giảm giá thành công!");
+                    this.orderForm.voucherId = voucher.voucherId;
+                }
+            }).fail(err => {
+                console.log(err);
+            })
+        });
     }
 
     // bindOrderToPage(){
@@ -95,6 +145,7 @@ class PayPage extends Base {
             case 1:
                 this.items = JSON.parse(sessionStorage.getItem('cart'));
                 document.querySelector('#totalMoneyPay').innerHTML = `${sessionStorage.getItem('totalMoney')} VNĐ`;
+                this.totalMoney = Number(sessionStorage.getItem('totalMoney'));
                 break;
             case 2:
                 let _itemId = this.url.searchParams.get("itemId");
@@ -109,6 +160,7 @@ class PayPage extends Base {
                         quantity: _quantity
                     });
                     document.querySelector('#totalMoneyPay').innerHTML = `${this.calculateSalePrice(res.data) * _quantity} VNĐ`;
+                    this.totalMoney = this.calculateSalePrice(res.data) * _quantity;
                 });
                 break;
             case 3:

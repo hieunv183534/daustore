@@ -7,10 +7,30 @@ class Base {
     this.total = 0;
     this.API = new BaseApi();
     this.initEventBase();
+    this.loadCartCount();
+  }
+
+  loadCartCount() {
+    let cartCount = 0;
+    let cartJSON = sessionStorage.getItem("cart");
+    if (cartJSON) {
+      cartCount = JSON.parse(cartJSON).length;
+    }
+    document.querySelectorAll(".menu-item.cart").forEach(cartButton => {
+      cartButton.setAttribute('count', cartCount);
+      cartButton.querySelector('.cart-count').innerHTML = cartCount;
+    });
   }
 
   initEventBase() {
     var seft = this;
+
+    document.querySelectorAll('div.logo').forEach(logo => {
+      logo.addEventListener('click', () => {
+        if (!window.location.href.includes('index'))
+          window.location.href = "../index.html";
+      })
+    })
 
     document.querySelector(".to-top").style.display = "none";
     window.onscroll = function () {
@@ -136,9 +156,8 @@ class Base {
   }
 
   reloadPagingInfo() {
-    document.querySelector("#pagingInfo strong").innerHTML = `Trang ${
-      this.index / this.count + 1
-    } / ${Math.ceil(this.total / this.count)}`;
+    document.querySelector("#pagingInfo strong").innerHTML = `Trang ${this.index / this.count + 1
+      } / ${Math.ceil(this.total / this.count)}`;
   }
 
   initEventTable() {
@@ -258,25 +277,22 @@ class Base {
     items.forEach((item) => {
       let itemElement = parseHTML(`<div class="col l-3 m-4 c-6">
                                             <div class="item-item" data='${JSON.stringify(
-                                              item
-                                            )}'>
-                                                <div class="sale-rate">-${
-                                                  item.saleRate
-                                                }%</div>
+        item
+      )}'>
+                                                <div class="sale-rate">-${item.saleRate
+        }%</div>
                                                 <img src="${getMediaUrl(
-                                                  item.medias.split(" ")[0]
-                                                )}">
-                                                <div class="item-title">${
-                                                  item.itemName
-                                                }</div>
+          item.medias.split(" ")[0]
+        )}">
+                                                <div class="item-title">${item.itemName
+        }</div>
                                                 <div class="item-price">
                                                     <p class="sale-price">${this.calculateSalePrice(
-                                                      item
-                                                    )} <font>đ</font>
+          item
+        )} <font>đ</font>
                                                     </p>
-                                                    <p class="real-price">${
-                                                      item.realPrice
-                                                    } <font>đ</font>
+                                                    <p class="real-price">${item.realPrice
+        } <font>đ</font>
                                                     </p>
                                                 </div>
                                                 <div class="item-footer">
@@ -322,6 +338,7 @@ class Base {
             cart.push({ itemId: itemData.itemId, quantity: 1 });
           }
           sessionStorage.setItem("cart", JSON.stringify(cart));
+          this.loadCartCount();
           showToastMessenger(
             "success",
             `Thêm thành công 1 ${itemData.itemName} vào giỏ hàng!`
@@ -341,10 +358,10 @@ class Base {
     });
   }
 
-  initEventListItem() {}
+  initEventListItem() { }
 
-  prePage() {}
-  nextPage() {}
-  loadListItem() {}
-  loadCart() {}
+  prePage() { }
+  nextPage() { }
+  loadListItem() { }
+  loadCart() { }
 }

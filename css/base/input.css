@@ -14,11 +14,11 @@
 }
 
 .input:focus {
-    border-color: #ff7ff7;
+    border-color: var(--pink-color);
 }
 
 .input:hover {
-    border-color: #ff7ff7;
+    border-color: var(--pink-color);
 }
 
 .search-box {

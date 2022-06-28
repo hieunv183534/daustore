@@ -27,7 +27,7 @@ class PayPage extends Base {
             address: '',
             items: '',
             note: '',
-            voucherId: ''
+            voucherId: '00000000-0000-0000-0000-000000000000',
         };
         this.items = [];
         this.totalMoney = 0;
@@ -75,14 +75,20 @@ class PayPage extends Base {
         });
 
         document.querySelector('#btnPayOrder').addEventListener('click', () => {
+            console.log(this.orderForm);
             this.API.addOrder(this.orderForm).done(res => {
                 showToastMessenger('success', "Đặt hàng thành công!");
-                console.log(res.data);
+                sessionStorage.setItem('cart', '[]');
+                sessionStorage.setItem('totalMoney', 0);
+                this.loadCartCount();
+                document.querySelector('#orderQrCode').setAttribute('src',
+                `https://api.qrserver.com/v1/create-qr-code/?data=${res.data.orderCode}&size=200x200`);
                 document.querySelector('#valueOrderCode').innerHTML = res.data.orderCode;
                 document.querySelector('.payment-content').setAttribute('step', '4');
             }).fail(error => {
                 console.log(error);
-                showToastMessenger('danger', "Đặt hàng không thành công!")
+                showToastMessenger('danger', "Đặt hàng không thành công!");
+                
             });
         });
 
@@ -96,25 +102,25 @@ class PayPage extends Base {
                     document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
                     document.querySelector('#infoVoucherDetail').value = '';
                     document.querySelector('#infoVoucherDetail').setAttribute('title', '');
-                    this.orderForm.voucherId = null;
+                    this.orderForm.voucherId = '00000000-0000-0000-0000-000000000000';
                 } else if (Number(new Date()) > Number(new Date(voucher.dateExpired))) {
                     showToastMessenger('danger', "Mã khuyến mãi hết hạn");
                     document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
                     document.querySelector('#infoVoucherDetail').value = '';
                     document.querySelector('#infoVoucherDetail').setAttribute('title', '');
-                    this.orderForm.voucherId = null;
+                    this.orderForm.voucherId = '00000000-0000-0000-0000-000000000000';
                 } else if (voucher.quota < 1) {
                     showToastMessenger('danger', "Mã khuyến mãi hết số lượng");
                     document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
                     document.querySelector('#infoVoucherDetail').value = '';
                     document.querySelector('#infoVoucherDetail').setAttribute('title', '');
-                    this.orderForm.voucherId = null;
+                    this.orderForm.voucherId = '00000000-0000-0000-0000-000000000000';
                 } else if (voucher.minTotal > this.totalMoney) {
                     showToastMessenger('danger', "Giá trị đơn hàng chưa đủ để áp dụng voucher này");
                     document.querySelector('#totalMoneyPay').innerHTML = `${this.totalMoney} VNĐ`;
                     document.querySelector('#infoVoucherDetail').value = '';
                     document.querySelector('#infoVoucherDetail').setAttribute('title', '');
-                    this.orderForm.voucherId = null;
+                    this.orderForm.voucherId = '00000000-0000-0000-0000-000000000000';
                 } else {
                     document.querySelector('#infoVoucherDetail').value = voucher.description;
                     document.querySelector('#infoVoucherDetail').setAttribute('title', voucher.description);
@@ -157,7 +163,8 @@ class PayPage extends Base {
                         itemName: res.data.itemName,
                         realPrice: res.data.realPrice,
                         saleRate: res.data.saleRate,
-                        quantity: _quantity
+                        quantity: _quantity,
+                        itemId: _itemId
                     });
                     document.querySelector('#totalMoneyPay').innerHTML = `${this.calculateSalePrice(res.data) * _quantity} VNĐ`;
                     this.totalMoney = this.calculateSalePrice(res.data) * _quantity;
@@ -213,12 +220,14 @@ class PayPage extends Base {
             unitCode: document.querySelector('#valueWard').getAttribute('value'),
             address: document.querySelector('#valueAddress').value,
             items: payPage.getValueItemsFromCart(),
-            note: document.querySelector('#valueNote').value
+            note: document.querySelector('#valueNote').value,
+            voucherId: '00000000-0000-0000-0000-000000000000'
         }
         console.log(payPage.orderForm);
     }
 
     getValueItemsFromCart() {
+        console.log(this.items);
         let itemsArr = [];
         this.items.forEach(item => {
             itemsArr.push(`${item.quantity}|${item.itemId}`);

@@ -23,7 +23,7 @@ class CartPage extends Base {
     async loadCart() {
         listCartItem.innerHTML = '';
         if ((this.cart == null || this.cart.length == 0)) {
-            listCartItem.append(parseHTML(`<div style="background-color: #F8DFF6; width: 100%; 
+            listCartItem.append(parseHTML(`<div style="background-color: #FCE3E5; width: 100%; 
                                             height: 100px; display: flex; align-items: center; 
                                             justify-content: center; font-size: 18px;">
                                                 Giỏ hàng hiện trống !
@@ -81,6 +81,7 @@ class CartPage extends Base {
             cartItemElement.querySelector('.fa-trash-can').addEventListener('click', () => {
                 this.cart = this.cart.filter(i => i.itemId !== itemId);
                 sessionStorage.setItem('cart', JSON.stringify(this.cart));
+                this.loadCartCount();
                 cartItemElement.remove();
                 this.calculateTotalMoney();
             });

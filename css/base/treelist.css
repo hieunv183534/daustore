@@ -10,7 +10,7 @@ summary::-webkit-details-marker {
 
 .category-main{
     height: 36px;
-    background-color: #ff7ff7;
+    background-color: var(--pink-color);
     padding: 0 5px;
     display: flex;
     align-items: center;
@@ -29,7 +29,7 @@ summary::-webkit-details-marker {
 }
 
 .tree-nav__item.is-expandable::before {
-    border-left: 1px solid #ff7ff7;
+    border-left: 1px solid var(--pink-color);
     content: "";
     height: 100%;
     left: 0.8rem;
@@ -44,7 +44,7 @@ summary::-webkit-details-marker {
 
 .tree-nav__item.is-expandable[open]>.tree-nav__item-title::before {
     font-family: "Font Awesome 5 Free"; font-weight: 900; content: "\f146";
-    color: #ff7ff7;
+    color: var(--pink-color);
 }
 
 .tree-nav__item.is-expandable>.tree-nav__item-title {
@@ -61,7 +61,7 @@ summary::-webkit-details-marker {
     left: 0;
     display: inline-block;
     width: 1.6rem;
-    color: #ff7ff7;
+    color: var(--pink-color);
     text-align: center;
 }
 
@@ -123,7 +123,7 @@ nav.tree-nav div.tree-nav__item-title:hover{
 }
 
 div.tree-nav__item-title.active{
-    background-color: #ff7ff7 !important;
+    background-color: var(--pink-color) !important;
 }
 
 .picked-category{
@@ -134,7 +134,7 @@ div.tree-nav__item-title.active{
 .picked-category i{
     font-size: 20px;
     margin-right: 5px;
-    color: #ff7ff7;
+    color: var(--pink-color);
 }
 .picked-category h4{
     margin: 5px 0;

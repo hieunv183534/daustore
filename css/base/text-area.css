@@ -12,11 +12,11 @@
 }
 
 .textarea-wrapper:hover{
-    border-color: #ec4405;
+    border-color: var(--pink-color);
 }
 
 .focus-border {
-    border-color: #ec4405;
+    border-color: var(--pink-color);
 }
 
 textarea {

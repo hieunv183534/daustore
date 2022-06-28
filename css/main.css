@@ -33,6 +33,14 @@
     src: url('../assets/font/notosans-semibold.df3e6dc4.woff2') format('woff2');
 }
 
+:root {
+    --pink-color: #FF99FF;
+    --pink2-color: #9B6BB3;
+    --pink3-color: #BB99FF;
+    --pink4-color: #836BB3;
+    --pink-hover-color: #FF99FF99;
+}
+
 ::-webkit-scrollbar {
     width: 15px;
     background-color: #F1F1F1;
@@ -89,7 +97,7 @@ button {
     cursor: pointer;
     width: 40px;
     height: 40px;
-    background-color: #FF7FF7;
+    background-color: var(--pink-color);
     border-radius: 8px;
     display: flex;
     align-items: center;
@@ -97,14 +105,14 @@ button {
     color: #F1F1F1;
 }
 
-input.validate-field{
+input.validate-field {
     border: 1px solid red !important;
 }
 
-textarea.validate-field{
+textarea.validate-field {
     border: 1px solid red !important;
 }
 
-.combobox.validate-field input{
+.combobox.validate-field input {
     border: 1px solid red !important;
 }

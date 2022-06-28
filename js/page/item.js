@@ -64,6 +64,7 @@ class ItemPage extends Base {
                 cart.push({ itemId: this.itemForm.itemId, quantity: this.itemForm.quantity });
             }
             sessionStorage.setItem('cart', JSON.stringify(cart));
+            this.loadCartCount();
             showToastMessenger('success', `Thêm thành công vào giỏ hàng!`)
         });
         document.querySelector('.main-buy-now').addEventListener('click',()=>{

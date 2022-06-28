@@ -39,20 +39,20 @@
 .filter-item {
     text-align: center;
     padding: 5px 0;
-    background-color: #ff7ff7;
+    background-color: var(--pink-color);
     line-height: 40px;
-    color: #FEE7E5;
+    color: #fff;
     transition: 0.2s;
     text-overflow: ellipsis;
     white-space: nowrap;
 }
 
 .filter-item.active {
-    background-color: #186CD8;
+    background-color: var(--pink2-color);
 }
 
 .filter-item.active_ {
-    background-color: #3be0b7;
+    background-color: var(--pink3-color);
 }
 
 .filter-item:hover {
@@ -124,7 +124,7 @@
     font-size: 16px;
     margin: 0;
     line-height: 20px;
-    color: #ff7ff7;
+    color: var(--pink-color);
     font-weight: 600;
 }
 
@@ -150,8 +150,8 @@
 }
 
 .item-footer>*:hover {
-    background-color: #ff7ff7;
-    color: #FEE7E5;
+    background-color: var(--pink-color);
+    color: #fff;
     transition: 0.3s;
 }
 
@@ -275,18 +275,18 @@
 
 
 .main-add-to-cart {
-    background-color: #ff7ff744;
-    border: 1px solid #d838cd;
-    color: #d838cd;
+    background-color: #F5F5F5;
+    border: 1px solid var(--pink-color);
+    color: var(--pink-color);
 }
 
 .main-add-to-cart:hover {
-    background-color: #ff7ff711;
+    background-color: #feedf0;
 }
 
 .main-buy-now {
-    background-color: #ff7ff7;
-    color: #FEE7E5;
+    background-color: var(--pink-color);
+    color: #fff;
 }
 
 .main-buy-now:hover {
@@ -308,14 +308,14 @@
 }
 
 .main-like-item i:hover {
-    color: #ff7ff7;
+    color: var(--pink-color);
 }
 
 
 
 
 .main-sale-price {
-    color: #ff7ff7;
+    color: var(--pink-color);
     font-weight: 600;
     font-size: 26px;
     text-shadow: 2px 2px 3px #FF0000;
@@ -343,7 +343,7 @@
 .input-quantity {
     width: 80px;
     height: 40px;
-    border: 1px solid #ff7ff7;
+    border: 1px solid var(--pink-color);
     outline: none;
     text-align: center;
 }
@@ -355,7 +355,7 @@
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    border: 1px solid #ff7ff7;
+    border: 1px solid var(--pink-color);
 }
 
 .input-quantity:hover, .input-quantity:focus, .down-quantity:hover, .up-quantity:hover {
@@ -388,13 +388,13 @@
 }
 
 .notification-item.active {
-    background-color: #ff7ff733;
+    background-color: var(--pink-color)33;
 }
 
 .close-notification {
     position: fixed;
     font-size: 30px;
-    color: #ff7ff755;
+    color: var(--pink-color)55;
     cursor: pointer;
 }
 
@@ -511,13 +511,13 @@
     width: auto;
     height: 40px;
     border-radius: 4px;
-    background-color: #ff7ff7;
+    background-color: var(--pink-color);
     display: flex;
     align-items: center;
     justify-content: center;
     font-weight: 600;
     padding: 0 20px;
-    color: #FEE7E5;
+    color: #fff;
     margin: 0px 20px;
     cursor: pointer;
 }
@@ -596,13 +596,13 @@
 }
 
 .move-button {
-    background-color: #ff7ff7;
+    background-color: var(--pink-color);
     width: 45px;
     height: 45px;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #FEE7E5;
+    color: #fff;
     font-size: 24px;
     cursor: pointer;
     border-radius: 50%;
@@ -713,7 +713,7 @@
 }
 
 .orther-link a {
-    color: #ff7ff7;
+    color: var(--pink-color);
     text-decoration: none;
 }
 
@@ -815,7 +815,7 @@
         background-color: #bbb;
         width: 100%;
         z-index: 115;
-        box-shadow: 0px 0px 4px 4px #ff7ff799;
+        box-shadow: 0px 0px 4px 4px var(--pink-color);
         margin-bottom: 0px !important;
     }
 

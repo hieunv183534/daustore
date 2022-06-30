@@ -39,19 +39,18 @@ class PayPage extends Base {
          * mode = 3: xem thông tin đơn hàng có sẵn
          */
         this.url = new URL(window.location.href);
-        var _mode = this.url.searchParams.get("mode");
-        if (!_mode) {
-            this.mode = 1;
-        } else {
-            this.mode = Number(_mode);
-        }
-
-        if (this.mode !== 3) {
-            this.initEvent();
-        } else {
+        this.orderCode = this.url.searchParams.get("orderCode");
+        if (this.orderCode) {
             this.bindOrderToPage();
+        } else {
+            var _mode = this.url.searchParams.get("mode");
+            if (!_mode) {
+                this.mode = 1;
+            } else {
+                this.mode = Number(_mode);
+            }
+            this.initEvent();
         }
-
         this.loadListItemPay();
     }
 
@@ -75,20 +74,22 @@ class PayPage extends Base {
         });
 
         document.querySelector('#btnPayOrder').addEventListener('click', () => {
+            showLoader();
             console.log(this.orderForm);
             this.API.addOrder(this.orderForm).done(res => {
+                document.querySelector('#orderQrCode').setAttribute('src',
+                    `https://api.qrserver.com/v1/create-qr-code/?data=https://daustore.store/page/pay.html?orderCode=${res.data.orderCode}&size=200x200`);
                 showToastMessenger('success', "Đặt hàng thành công!");
                 sessionStorage.setItem('cart', '[]');
                 sessionStorage.setItem('totalMoney', 0);
                 this.loadCartCount();
-                document.querySelector('#orderQrCode').setAttribute('src',
-                `https://api.qrserver.com/v1/create-qr-code/?data=${res.data.orderCode}&size=200x200`);
                 document.querySelector('#valueOrderCode').innerHTML = res.data.orderCode;
                 document.querySelector('.payment-content').setAttribute('step', '4');
+                hideLoader();
             }).fail(error => {
                 console.log(error);
                 showToastMessenger('danger', "Đặt hàng không thành công!");
-                
+                hideLoader();
             });
         });
 
@@ -140,9 +141,46 @@ class PayPage extends Base {
         });
     }
 
-    // bindOrderToPage(){
-    //     let orderId = 
-    // }
+    bindOrderToPage() {
+        document.querySelector('.payment-content').setAttribute('step', 3);
+        this.API.lookupOrder(this.orderCode).done(res => {
+            let order = res.data[0];
+            console.log(order);
+            document.querySelector('#infoBuyerName').value = order.buyerName;
+            document.querySelector('#infoPhone').value = order.phone;
+            document.querySelector('#infoEmail').value = order.email;
+            // document.querySelector('#infoProvince').value = 
+            // document.querySelector('#infoDistrict').value = document.querySelector('#valueDistrictName').value;
+            // document.querySelector('#infoWard').value = document.querySelector('#valueWardName').value;
+            document.querySelector('#infoAddress').value = order.address;
+            document.querySelector('#infoNote').value = order.note;
+
+            let unitArrs = order.unitCode.split("|");
+            let tinh = `|${unitArrs[1]}|`;
+            let huyen = `|${unitArrs[1]}|${unitArrs[2]}|`;
+            this.API.getUnit(order.unitCode).done(res => {
+                document.querySelector('#infoWard').value = res.data.unitName;
+            });
+            this.API.getUnit(huyen).done(res => {
+                document.querySelector('#infoDistrict').value = res.data.unitName;
+            });
+            this.API.getUnit(tinh).done(res => {
+                document.querySelector('#infoProvince').value = res.data.unitName;
+            });
+
+            if (order.voucherId != '00000000-0000-0000-0000-000000000000') {
+                this.API.getVoucherById(order.voucherId).done(res => {
+                    document.querySelector('#infoVoucherCode').value = res.data.voucherCode;
+                    document.querySelector('#infoVoucherDetail').value = res.data.description;
+                    document.querySelector('#infoVoucherCode').setAttribute('disabled', true);
+                    document.querySelector('#btnVoucher').setAttribute('disabled', true);
+                    document.querySelector('#btnPayOrder').setAttribute('disabled', true);
+                }).fail(err => {
+                    console.log(err);
+                })
+            }
+        })
+    }
 
     async loadListItemPay() {
         listItemPay.innerHTML = '';

@@ -161,10 +161,25 @@ class BaseApi {
         })
     }
 
+    getVoucherById(voucherId) {
+        return $.ajax({
+            url: this.baseUrl + `getVoucherById/${voucherId}`,
+            method: 'GET'
+        })
+    }
+
     getUnits(unitCode){
         return $.ajax({
             url: `https://n8-covid-be.herokuapp.com/unit/unit-info?unit=${unitCode}&page=1&total=100`,
             method: 'GET'
         });
     }
+
+    getUnit(unitCode){
+        return $.ajax({
+            url: `https://n8-covid-be.herokuapp.com/unit/unit-single?unit=${unitCode}`,
+            method: 'GET'
+        });
+    }
+    
 }

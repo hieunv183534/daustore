@@ -31,16 +31,16 @@
 }
 
 .loader-icon {
-    width: 118px;
-    height: 118px;
+    width: 300px;
+    height: 300px;
     position: fixed;
-    margin-left: -59px;
-    margin-top: -59px;
+    margin-left: -150px;
+    margin-top: -150px;
     top: 50%;
     left: 50%;
-    background-image: url('../../assets/image/loader.svg');
+    background-image: url('../../assets/image/loader1.svg');
     background-repeat: no-repeat;
     background-size: contain;
     z-index: 445;
-    animation: rotate 0.1s linear infinite;
+    /* animation: rotate 0.1s linear infinite; */
 }

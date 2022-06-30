@@ -50,8 +50,8 @@ class PayPage extends Base {
                 this.mode = Number(_mode);
             }
             this.initEvent();
+            this.loadListItemPay();
         }
-        this.loadListItemPay();
     }
 
     initEvent() {
@@ -149,12 +149,9 @@ class PayPage extends Base {
             document.querySelector('#infoBuyerName').value = order.buyerName;
             document.querySelector('#infoPhone').value = order.phone;
             document.querySelector('#infoEmail').value = order.email;
-            // document.querySelector('#infoProvince').value = 
-            // document.querySelector('#infoDistrict').value = document.querySelector('#valueDistrictName').value;
-            // document.querySelector('#infoWard').value = document.querySelector('#valueWardName').value;
             document.querySelector('#infoAddress').value = order.address;
             document.querySelector('#infoNote').value = order.note;
-
+            document.querySelector('#totalMoneyPay').innerHTML = order.totalMoney + " VND"
             let unitArrs = order.unitCode.split("|");
             let tinh = `|${unitArrs[1]}|`;
             let huyen = `|${unitArrs[1]}|${unitArrs[2]}|`;
@@ -168,6 +165,37 @@ class PayPage extends Base {
                 document.querySelector('#infoProvince').value = res.data.unitName;
             });
 
+            // render listItem
+            listItemPay.innerHTML = '';
+            order.items.split(" _and_ ").forEach(item => {
+                let itemArr = item.split('|');
+                console.log(itemArr);
+                let itemPayElement = parseHTML(`<div class="cart-item">
+                                                <div class="row">
+                                                    <div class="col l-2 m-2 c-5">
+                                                        <img src="${getMediaUrl(itemArr[3])}">
+                                                    </div>
+                                                    <div class="col l-10 m-10 c-7 item-cart-info">
+                                                        <div class="item-cart-name">${itemArr[4]}</div>
+                                                        <div class="item-cart-price">
+                                                            <div class="item-cart-sale-price">Đơn giá:&nbsp;</div>
+                                                            <div class="item-cart-sale-price">${Number(itemArr[2])/Number(itemArr[0])} đ</div>
+                                                        </div>
+                                                        <div class="item-cart-price">
+                                                            <div class="item-cart-sale-price">Số lượng:&nbsp;</div>
+                                                            <div class="item-cart-sale-price">${itemArr[0]}</div>
+                                                        </div>
+                                                        <div class="item-cart-price">
+                                                            <div class="item-cart-sale-price">Thành tiền:&nbsp;</div>
+                                                            <div class="item-cart-sale-price">${itemArr[2]} đ</div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>`);
+                listItemPay.append(itemPayElement);
+            });
+
+            // voucher
             if (order.voucherId != '00000000-0000-0000-0000-000000000000') {
                 this.API.getVoucherById(order.voucherId).done(res => {
                     document.querySelector('#infoVoucherCode').value = res.data.voucherCode;
@@ -207,8 +235,6 @@ class PayPage extends Base {
                     document.querySelector('#totalMoneyPay').innerHTML = `${this.calculateSalePrice(res.data) * _quantity} VNĐ`;
                     this.totalMoney = this.calculateSalePrice(res.data) * _quantity;
                 });
-                break;
-            case 3:
                 break;
             default:
                 break;

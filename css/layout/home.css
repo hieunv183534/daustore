@@ -388,13 +388,13 @@
 }
 
 .notification-item.active {
-    background-color: var(--pink-color)33;
+    background-color: var(--pink-color);
 }
 
 .close-notification {
     position: fixed;
     font-size: 30px;
-    color: var(--pink-color)55;
+    color: var(--pink-color);
     cursor: pointer;
 }
 
@@ -805,7 +805,7 @@
     }
 
     .item-cart-quantity {
-        width: 90%;
+        width: 90% !important;
         justify-content: center;
     }
 

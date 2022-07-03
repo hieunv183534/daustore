@@ -88,7 +88,11 @@ class PayPage extends Base {
                 hideLoader();
             }).fail(error => {
                 console.log(error);
-                showToastMessenger('danger', "Đặt hàng không thành công! "+ error.responseJSON.data.msg);
+                let msgErr = error.responseJSON.message;
+                if(error.status == 500){
+                    msgErr = error.responseJSON.data.msg;
+                }
+                showToastMessenger('danger', "Đặt hàng không thành công! "+ msgErr);
                 hideLoader();
             });
         });

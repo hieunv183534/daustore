@@ -273,41 +273,37 @@ class Base {
   }
 
   renderListItem(items) {
+    console.log(items);
     listItem.innerHTML = "";
     items.forEach((item) => {
+      console.log(item.inStock);
       let itemElement = parseHTML(`<div class="col l-3 m-4 c-6">
-                                            <div class="item-item" data='${JSON.stringify(
-        item
-      )}'>
-                                                <div class="sale-rate">-${item.saleRate
-        }%</div>
-                                                <img src="${getMediaUrl(
-          item.medias.split(" ")[0]
-        )}">
-                                                <div class="item-title">${item.itemName
-        }</div>
-                                                <div class="item-price">
-                                                    <p class="sale-price">${this.calculateSalePrice(
-          item
-        )} <font>đ</font>
-                                                    </p>
-                                                    <p class="real-price">${item.realPrice
-        } <font>đ</font>
-                                                    </p>
-                                                </div>
-                                                <div class="item-footer">
-                                                    <div class="like-item">
-                                                        <i class="fa-solid fa-heart"></i>
-                                                    </div>
-                                                    <div class="add-to-cart">
-                                                        <i class="fa-solid fa-cart-plus"></i>
-                                                    </div>
-                                                    <div class="buy-now">
-                                                        Mua ngay
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>`);
+                                      <div class="item-item" data='${JSON.stringify(item)}'>
+                                          <div class="sale-rate">-${item.saleRate}%</div>
+                                          <img src="${getMediaUrl(item.medias.split(" ")[0])}">
+                                          <div class="item-title">${item.itemName}</div>
+                                          <div class="item-price">
+                                              <p class="sale-price">${this.calculateSalePrice(item)} <font>đ</font>
+                                              </p>
+                                              <p class="real-price">${item.realPrice} <font>đ</font>
+                                              </p>
+                                          </div>
+                                          <div class="item-footer">
+                                              <div class="like-item">
+                                                  <i class="fa-solid fa-heart"></i>
+                                              </div>
+                                              <div class="add-to-cart">
+                                                  <i class="fa-solid fa-cart-plus"></i>
+                                              </div>
+                                              <div class="buy-now">
+                                                  Mua ngay
+                                              </div>
+                                          </div>
+                                          <div class="item-out-of-stock ${item.inStock > 0 ? 'd-none' : ''}">
+                                            <p>HẾT HÀNG</p>
+                                          </div>
+                                      </div>
+                                    </div>`);
       listItem.append(itemElement);
     });
 

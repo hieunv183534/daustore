@@ -81,6 +81,10 @@ body {
     box-sizing: border-box !important;
 }
 
+.d-none{
+    display: none !important;
+}
+
 button {
     border: 0;
     outline: 0;

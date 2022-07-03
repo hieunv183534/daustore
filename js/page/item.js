@@ -84,10 +84,14 @@ class ItemPage extends Base {
             document.querySelector('.main-real-price').innerHTML = res.data.realPrice + ' đ';
             document.querySelector('.main-sale-rate').innerHTML = '-' + res.data.saleRate + '%';
             document.querySelector('.main-item-img').setAttribute('src', getMediaUrl(res.data.medias.split(' ')[0]));
+            document.querySelector('#valueInStock').innerHTML = `Kho: &nbsp; ${res.data.inStock}`;
             this.itemForm.listMediaUrl = res.data.medias.split(' ');
             this.itemForm.listMediaUrl.forEach(function (part, index, theArray) {
                 theArray[index] = getMediaUrl(theArray[index]);
             });
+            if(res.data.inStock > 0){
+                document.querySelector('.out-of-stock').classList.add('d-none');
+            }
 
             let listCategory = JSON.parse(localStorage.getItem('category'));
             let thisCategory = listCategory.find(c => c.categoryCode == res.data.categoryCode);
